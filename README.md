@@ -22,4 +22,4 @@ This repo contains code for multi-scale community detection.
 https://nrnb.org/music/
 
 ## Citing MuSIC
-Please cite **Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”.**
+Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
