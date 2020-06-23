@@ -17,6 +17,8 @@ This repo contains code for multi-scale community detection.
 2. bash \<outprefix\>.sh
 3. Hierarchy is written in file \<outprefix\>.louvain.ddot with specific protein assignment for each system available in file \<outprefix\>.louvain.termStats
 
+*Note: maximum clique finding is NP-hard, although utilized a heuristic approach, CliXO can still take a long time to finish.*
+
 ## Webpage
 https://nrnb.org/music/
 
