@@ -3,6 +3,7 @@ import numpy as np
 import sys
 import os
 import ddot
+import argparse
 from ddot import Ontology
 
 parser = argparse.ArgumentParser(description='Generate bash file for community detection pipeline.')

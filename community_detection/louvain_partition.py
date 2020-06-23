@@ -5,6 +5,8 @@ import os
 import igraph as ig
 import louvain
 import argparse
+cdDir = '/'.join(x for x in os.path.dirname(os.path.abspath(__file__)).split('/')[:-1])
+sys.path.append(cdDir)
 from file_utils import *
 
 
@@ -52,7 +54,6 @@ save_obj(G, '{}.G.pkl'.format(outprefix))
 save_obj(name_to_idx, '{}.node_name_to_idx.dict.pkl'.format(outprefix))
 save_obj(idx_to_name, '{}.node_idx_to_name.dict.pkl'.format(outprefix))
 # Find the best modularity
-print('Louvain best modularity is {}'.format(modularity_list.max()))
 best_idx = np.where(modularity_list == modularity_list.max())[0][0]
 best_partition = membership_list[best_idx]
 unique_cluster = list(set(best_partition))

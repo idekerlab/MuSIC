@@ -23,7 +23,8 @@ parser.add_argument('--ji_thre', type=float, default=0.9,
 args = parser.parse_args()
 
 outprefix = args.outprefix
-path_to_clixo = args.outprefix.rstrip('/') + '/clixo'
+path_to_clixo = args.path_to_clixo.rstrip('/') + '/clixo'
+cdDir = os.getcwd()
 
 # Check if clixo path is valid
 if not os.access(path_to_clixo, os.X_OK):
@@ -53,9 +54,9 @@ with open('{}.sh'.format(outprefix), 'w') as scriptfile:
                                                                                    args.clixo_m, 
                                                                                    args.clixo_z, 
                                                                                    outprefix))
-    scriptfile.write('python process_clixoOutFile.py --outprefix {} --path_to_alignOntology {}\n'.format(outprefix, args.path_to_alignOntology))
-    scriptfile.write('python trim_clixo.py --outprefix {} --minSystemSize {}\n'.format(outprefix, args.minSystemSize))
-    scriptfile.write('python mature_hier_structure.py --outprefix {} --ci_thre {} --ji_thre {} --minSystemSize {}\n'.format(outprefix, args.ci_thre, args.ji_thre, args.minSystemSize))
-    scriptfile.write('python louvain_partition.py --outprefix {} --clixo_i {}\n'.format(outprefix, args.clixo_i))
-    scriptfile.write('python cap_louvain.py --outprefix {} --path_to_alignOntology {} --minSystemSize {}\n'.format(outprefix, args.path_to_alignOntology, args.minSystemSize))
+    scriptfile.write('python {}/community_detection/process_clixoOutFile.py --outprefix {} --path_to_alignOntology {}\n'.format(cdDir, outprefix, args.path_to_alignOntology))
+    scriptfile.write('python {}/community_detection/trim_clixo.py --outprefix {} --minSystemSize {}\n'.format(cdDir, outprefix, args.minSystemSize))
+    scriptfile.write('python {}/community_detection/mature_hier_structure.py --outprefix {} --ci_thre {} --ji_thre {} --minSystemSize {} --path_to_alignOntology {}\n'.format(cdDir, outprefix, args.ci_thre, args.ji_thre, args.minSystemSize, args.path_to_alignOntology))
+    scriptfile.write('python {}/community_detection/louvain_partition.py --outprefix {} --clixo_i {}\n'.format(cdDir, outprefix, args.clixo_i))
+    scriptfile.write('python {}/community_detection/cap_louvain.py --outprefix {} --path_to_alignOntology {} --minSystemSize {}\n'.format(cdDir, outprefix, args.path_to_alignOntology, args.minSystemSize))
 

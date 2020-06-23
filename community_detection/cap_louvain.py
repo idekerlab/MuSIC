@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 import sys
 import os
+import argparse
+cdDir = '/'.join(x for x in os.path.dirname(os.path.abspath(__file__)).split('/')[:-1])
+sys.path.append(cdDir)
 from file_utils import *
 
 
@@ -19,7 +22,7 @@ def get_orphan_genes(ts_path, root_gene_list, minSystemSize=3):
         non_root_gene += row['genes'].split(',')[:-1]
     non_root_geneset = set(non_root_gene)
     orphan_genes = list(set(root_gene_list) - non_root_geneset)
-    return orphan_genesc
+    return orphan_genes
 
 
 
@@ -64,10 +67,8 @@ for fl in first_layer_term:
     for i, cluster in enumerate(louvain_cluster):
         df.at[fl, 'Cluster_{}'.format(i)] = contain_frac(fl_genes, cluster)
 # Delete all root->node edges
-print('Before dropping:', ont_edge.shape)
 drop_idx = ont_edge[ont_edge['parent'] == root].index.values
 ont_edge.drop(index=drop_idx, inplace=True)
-print('After dropping:', ont_edge.shape)
 
 contain_thre = 0.5
 # Add first layer term to louvain
@@ -105,7 +106,6 @@ for idx, c in enumerate(df.columns):
         add_type.append('default')
 
 orphan_genes = get_orphan_genes('{}.termStats'.format(outprefix), hiergenes, minSystemSize=args.minSystemSize)
-print(len(orphan_genes))
 # Add louvain_cluster->gene edges
 for idx, c in enumerate(df.columns):
     if str(idx) != c.split('_')[-1]:

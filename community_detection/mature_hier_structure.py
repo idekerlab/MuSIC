@@ -4,6 +4,8 @@ import sys
 import os
 import argparse
 import networkx as nx
+cdDir = '/'.join(x for x in os.path.dirname(os.path.abspath(__file__)).split('/')[:-1])
+sys.path.append(cdDir)
 from file_utils import *
 
 
@@ -190,7 +192,7 @@ if not nx.is_directed_acyclic_graph(G):
 
 while True:
     modified = reorganize(G, hiergeneset, ci_thre, cluster_weight)
-    merged = merge_parent_child(G, hiergeneset, ji_thre, cluster_weight)
+    merged = merge_parent_child(G, hiergeneset, ji_thre)
     if not modified and not merged:
         break
 
