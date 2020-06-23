@@ -13,10 +13,9 @@ This repo contains code for multi-scale community detection.
 9. igraph
 
 ## Usage
-
-
-
-
+1. python community_detection.py
+2. bash <outprefix>.sh
+3. Hierarchy is written in file <outprefix>.louvain.ddot with specific protein assignment for each system available in file <outprefix>.louvain.termStats
 
 ## Webpage
 https://nrnb.org/music/
