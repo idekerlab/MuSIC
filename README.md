@@ -9,7 +9,7 @@ This repo contains code for multi-scale community detection.
 5. pandas
 6. numpy
 7. argparse
-8. networkx
+8. networkx ≥v2.3
 9. igraph
 
 ## Usage
