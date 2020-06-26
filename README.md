@@ -47,13 +47,13 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 `--minSystemSize` Minimum number of proteins requiring each system to have. (default: 4)
 
-`--ci_thre` Threshold for Containment Index. (default: 0.75)
+`--ci_thre` Threshold for containment index. Additional hierarchical parent-child containment relations will be assigned between pairs of systems having a containment index above this threshold. (default: 0.75)
 
-`--ji_thre` Threshold for Jaccard Index. (default: 0.9)
+`--ji_thre` Threshold for Jaccard index. System having Jaccard index above this threshold with its parent system will be removed. (default: 0.9)
 
 `--niter` Number of iterations Louvain clustering will run to select partition with the best modularity. (default: 1000)
 
-`--min_diff` Minimum difference in number of proteins for every parent-child pair. (default: 1)
+`--min_diff` Minimum difference in number of proteins required for every parent-child pair. (default: 1)
 
 `--keep_all_files` When this flag is provided, all intermediate output files will be kept.
 
