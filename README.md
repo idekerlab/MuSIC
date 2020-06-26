@@ -39,9 +39,9 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 `--clixo_b` CliXO -b flag: for merging overlapping communities. Two existing communities will be merged if their similarity is above the threshold defined by this value. Usually a higher value will create a hierarchy with more smaller communities", which looks "broader". (default: 0.5)
 
-`--clixo_m` CliXO -m flag: modularity cutoff. (default: 0)
+`--clixo_m` CliXO -m flag: modularity cutoff. Communities lower than this threshold will be removed from the output. Increasing the value will reduce the number of communities. (default: 0)
 
-`--clixo_z` CliXO -z flag: modularity cutoff. (default: 0)
+`--clixo_z` CliXO -z flag: modularity cutoff. Communities lower than this threshold will be removed from the output. Increasing the value will reduce the number of communities. (default: 0)
 
 `--clixo_s` CliXO -s flag: a cutoff of similarity score, if set, the program will terminate when it reaches this point, and stop looking for more terms from scores lower than this threshold. (default: 0)
 
