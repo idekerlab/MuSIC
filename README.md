@@ -21,7 +21,7 @@ python community_detection.py --outprefix /path/to/output/folder/filePrefix
                               
 bash <outprefix>.sh
 ```
-Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein assignment for each system available in file \<outprefix\>.louvain.termStats
+Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein assignment for each system available in file `<outprefix>.louvain.termStats`.
 
 *Note: maximum clique finding is NP-hard, although utilized a heuristic approach, CliXO can still take a long time to finish.*
 
