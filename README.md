@@ -25,7 +25,7 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 *Note: maximum clique finding is NP-hard, although utilized a heuristic approach, CliXO can still take a long time to finish.*
 
-#### Required parameters for community_detection.py:
+### Required arguments for community_detection.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier. E.g. /path/to/output/folder/filePrefix 
 
 `--path_to_clixo` Full path to CliXO folder. E.g. /path/to/CliXO/folder
@@ -34,7 +34,9 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 `--path_to_alignOntology` Full path to alignOntology folder.
 
-#### Optional parameters for community_detection.py:
+
+
+### Optional arguments for community_detection.py:
 `--clixo_a` CliXO -a flag: for the step size of hierarchy construction; usually, a smaller value will create "deeper" hierarchies with more levels from leaves to the root. (default: 0.1)
 
 `--clixo_b` CliXO -b flag: for merging overlapping communities. Two existing communities will be merged if their similarity is above the threshold defined by this value. Usually a higher value will create a hierarchy with more smaller communities", which looks "broader". (default: 0.5)
