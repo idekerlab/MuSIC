@@ -31,9 +31,11 @@ parser.add_argument('--outprefix', help='Prefix for files generated. E.g. /path/
 parser.add_argument('--path_to_alignOntology', help='Full path to alignOntology folder.')
 parser.add_argument('--minSystemSize', type=int, default=2, 
                     help='Minimum number of proteins requiring each system to have.')
+parser.add_argument('--niter', type=int, default=1000, help='Number of iterations Louvain clustering will run to select partition with the best modularity.')
 args = parser.parse_args()
 
 outprefix = args.outprefix
+niter = args.niter
 
 ddotfname = '{}.ddot'.format(outprefix)
 # Load processed ddot file
@@ -45,8 +47,8 @@ ont_ts.columns = ['comp', 'tsize', 'genes']
 ont_ts.set_index('comp', inplace=True)
 # Load louvain outputs
 idx_to_name = load_obj('{}.node_idx_to_name.dict.pkl'.format(outprefix))
-partition_list = np.load('{}.mvp_partition_membership.1000.npy'.format(outprefix))
-modularity_list = np.load('{}.mvp_partition_modularity.1000.npy'.format(outprefix))
+partition_list = np.load('{}.mvp_partition_membership.{}.npy'.format(outprefix, niter))
+modularity_list = np.load('{}.mvp_partition_modularity.{}.npy'.format(outprefix, niter))
 
 hiergenes = list(set(ont_edge[ont_edge['type'] == 'gene']['child'].values))
 best_idx = np.where(modularity_list == modularity_list.max())[0][0]
@@ -127,4 +129,4 @@ cmd = '{}/ontologyTermStats {} genes > {}'.format(args.path_to_alignOntology.rst
                                                   '{}.louvain.termStats'.format(outprefix))
 os.system(cmd)
 
-print('=== finished! ===')
+print('=== finished cap_louvain ===')

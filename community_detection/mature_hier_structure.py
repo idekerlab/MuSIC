@@ -116,7 +116,7 @@ def merge_parent_child(G, hiergeneset, ji_thre):
     clean_shortcut(G)
     return merged
 
-def collapse_redundant(G, hiergeneset, cluster_weight):
+def collapse_redundant(G, hiergeneset, cluster_weight, min_diff):
     # Delete child term if highly similar with parent term
     # One parent-child relationship at a time to avoid complicacies involved in potential long tail
     print('... start removing highly redundant systems')
@@ -127,7 +127,9 @@ def collapse_redundant(G, hiergeneset, cluster_weight):
         to_collapse = []
         for idx, row in default_edge.iterrows():
             parentSys, childSys, _ = row.values
-            if ts_df.loc[parentSys]['tsize'] - ts_df.loc[childSys]['tsize'] == 1:
+            if parentSys not in cluster_weight:
+                cluster_weight[parentSys] = 0
+            if ts_df.loc[parentSys]['tsize'] - ts_df.loc[childSys]['tsize'] < min_diff:
                 to_collapse.append([parentSys, childSys, cluster_weight[parentSys]])
         if len(to_collapse) == 0:
             return
@@ -160,6 +162,7 @@ parser.add_argument('--ji_thre', type=float, default=0.9,
 parser.add_argument('--minSystemSize', type=int, default=2, 
                     help='Minimum number of proteins requiring each system to have.')
 parser.add_argument('--path_to_alignOntology', help='Full path to alignOntology.')
+parser.add_argument('--min_diff', type=int, default=1, help='Minimum difference in number of proteins for every parent-child pair.')
 args = parser.parse_args()
 
 outprefix = args.outprefix
@@ -196,7 +199,7 @@ while True:
     if not modified and not merged:
         break
 
-collapse_redundant(G, hiergeneset, cluster_weight)
+collapse_redundant(G, hiergeneset, cluster_weight, args.min_diff)
 # Output as ddot edge file
 clean_shortcut(G)
 edge_df = nx.to_pandas_edgelist(G)

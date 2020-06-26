@@ -13,10 +13,12 @@ from file_utils import *
 parser = argparse.ArgumentParser(description='Generate bash file for community detection pipeline.')
 parser.add_argument('--outprefix', help='Prefix for files generated. E.g. /path/to/output/directory/fileIdentifier')
 parser.add_argument('--clixo_i', help='Path to input similarity network for CliXO.')
+parser.add_argument('--niter', type=int, default=1000, help='Number of iterations Louvain clustering will run to select partition with the best modularity.')
 args = parser.parse_args()
 
 print('... start community detection with louvain algorithm')
 outprefix = args.outprefix
+niter = args.niter
 df = pd.read_table(args.clixo_i, header=None)
 df.columns = ['geneA', 'geneB', 'weight']
 hiergenes = list(set(df['geneA'].values).union(set(df['geneB'].values)))
@@ -30,18 +32,18 @@ if G.is_directed():
     raise ValueError('Graph should not be directed!')
 if not G.is_weighted():
     raise ValueError('Graph should be weighted!')
-# Partition 1000 times, find the partition with best modularity
+# Partition niter times, find the partition with best modularity
 modularity_list = []
 membership_list = []
-for i in range(1000):
+for i in range(niter):
     partition = louvain.find_partition(G, louvain.ModularityVertexPartition, weights='weight')
     modularity_list.append(partition.modularity)
     membership_list.append(partition.membership)
 modularity_list = np.asarray(modularity_list)
 membership_list = np.asarray(membership_list)
-# save 1000 iteration results
-np.save('{}.mvp_partition_modularity.1000.npy'.format(outprefix), modularity_list)
-np.save('{}.mvp_partition_membership.1000.npy'.format(outprefix), membership_list)
+# save niter iteration results
+np.save('{}.mvp_partition_modularity.{}.npy'.format(outprefix, niter), modularity_list)
+np.save('{}.mvp_partition_membership.{}.npy'.format(outprefix, niter), membership_list)
 # Get node ids
 node_idx = []
 node_name = []
@@ -58,6 +60,4 @@ best_idx = np.where(modularity_list == modularity_list.max())[0][0]
 best_partition = membership_list[best_idx]
 unique_cluster = list(set(best_partition))
 print('Louvain best modularity partition gave {} clusters.'.format(len(unique_cluster)))
-for c in unique_cluster:
-    print('Cluster {} has {} proteins'.format(c, len(np.where(best_partition == c)[0])))
 print('=== finished louvain_partition.py ===')
