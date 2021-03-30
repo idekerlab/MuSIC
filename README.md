@@ -2,6 +2,7 @@
 This repo contains code for developing a multi-scale integrated cell model from integration of Human Protein Atlas images and the BioPlex interaction network. 
 
 ![](https://github.com/idekerlab/MuSIC/master/Examples/music_workflow_overview.png)
+![](https://github.com/leahvschaffer/MuSIC/master/Examples/music_workflow_overview.png)
 
 ## Overall Requirements 
 1. numpy
@@ -10,11 +11,11 @@ This repo contains code for developing a multi-scale integrated cell model from 
 4. pandas
 5. argparse
 
-## Protein Embedding
+## HPA Protein Embedding
 
 Human Protein Atlas image embedding is performed using code available at https://github.com/CellProfiling/densenet.
 
-### BioPlex network embedding
+## BioPlex Protein Embedding
 
 This script downloads the BioPlex interaction network and formats it for node2vec embedding.
 
