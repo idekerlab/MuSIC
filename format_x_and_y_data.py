@@ -31,6 +31,7 @@ def format_x_and_y_data(workdir):
     # split gene pairs into 5 batches
     kf = KFold(n_splits=5, random_state=10, shuffle=True)
     batch = 0
+    y_test_all = list()
     for train_index, test_index in kf.split(X):
         batch += 1
         X_train, X_test = X[train_index], X[test_index]
@@ -39,6 +40,8 @@ def format_x_and_y_data(workdir):
         np.save('{}/X_test_genepair_{}.npy'.format(outputdir, batch), X_test)
         np.save('{}/y_train_genepair_{}.npy'.format(outputdir, batch), y_train)
         np.save('{}/y_test_genepair_{}.npy'.format(outputdir, batch), y_test)
+        y_test_all.extend(y_test)
+    np.save('{}/y_test_genepair.all.npy'.format(outputdir), y_test_all)
 
     for batch in range(1, 6):
         y_train = np.load('{}/y_train_genepair_{}.npy'.format(outputdir, batch))
