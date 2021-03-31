@@ -203,6 +203,31 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 `--keep_all_files` When this flag is provided, all intermediate output files will be kept.
 
+## Calibrate to physical distance
+
+This script calibrates the hierarchy to physical distance.
+
+### Usage 
+```
+python quantile_regression.py --q 0.2 --balance --outdir /path/to/output/folder --rf_pred_path /path/to/file/w=avg_allyPred.npy --sdir /path/to/output/folder/train_test_data --hierarchy_path /path/to/hierarchy.louvain.termStats --predicted_sim_path /path/to/predicted_resnik_sim.ddot
+ ```
+
+### Required arguments for quantile_regression.py
+
+`--q` quantile for quantile regression model
+
+`--outdir` Full path to the folder where results will be saved in with unique file identifier. E.g. /path/to/output/folder/
+
+`--sdir` Full path to the folder training and testing data was saved in format_random_forest.py E.g. /path/to/output/folder/train_test_data
+
+`--hierarchy_path` Full path to file with hierarchy saved in community_detection.py with file extension louvain.termStats
+
+`--predicted_sim_path` Full path to random forest predicted similarity matrix predicted_resnik_sim.ddot
+
+### Optional arguments for quantile_regression.py
+
+`--balance` 
+
 ## Webpage
 https://nrnb.org/music/
 
