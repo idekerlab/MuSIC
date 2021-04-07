@@ -12,7 +12,7 @@ This repo contains code for developing a multi-scale integrated cell model from 
 
 ## HPA Protein Embedding
 
-Human Protein Atlas image embedding is performed using code available at https://github.com/CellProfiling/densenet.
+Code for embedding Human Protein Atlas images is available at https://github.com/CellProfiling/densenet.
 
 ## BioPlex Protein Embedding
 
