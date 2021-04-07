@@ -1,5 +1,5 @@
 # Multi-Scale Integrated Cell (MuSIC)
-This repo contains code for developing a multi-scale integrated cell model from integration of Human Protein Atlas images and the BioPlex interaction network. 
+This repo contains code for developing a multi-scale integrated cell model from integrating immunofluorescence images in the Human Protein Atlas with affinity purification experiments from the BioPlex resource to create a unified hierarchical map of eukaryotic cell architecture.
 
 <img src="https://github.com/idekerlab/MuSIC/blob/master/Examples/music_workflow_overview.png" width="400">
 
