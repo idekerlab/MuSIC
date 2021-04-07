@@ -1,7 +1,7 @@
 # Multi-Scale Integrated Cell (MuSIC)
 This repo contains code for developing a multi-scale integrated cell model from integration of Human Protein Atlas images and the BioPlex interaction network. 
 
-<img src="https://github.com/leahvschaffer/MuSIC/blob/master/Examples/music_workflow_overview.png" width="400">
+<img src="https://github.com/idekerlab/MuSIC/blob/master/Examples/music_workflow_overview.png" width="400">
 
 ## Overall Requirements 
 1. numpy
