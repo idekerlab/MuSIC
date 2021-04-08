@@ -1,19 +1,18 @@
 # Multi-Scale Integrated Cell (MuSIC)
-This repo contains code for developing a multi-scale integrated cell model from integration of Human Protein Atlas images and the BioPlex interaction network. 
+This repo contains code for developing a multi-scale integrated cell (MuSIC) map from integrating immunofluorescence images in the Human Protein Atlas with affinity purification experiments from the BioPlex resource to create a unified hierarchical map of eukaryotic cell architecture.
 
-<img src="https://github.com/leahvschaffer/MuSIC/blob/master/Examples/music_workflow_overview.png" width="400">
+<img src="https://github.com/idekerlab/MuSIC/blob/master/Examples/music_workflow_overview.png" width="400">
 
 ## Overall Requirements 
-1. numpy
-2. dill
-3. sklearn
-4. pandas
-5. argparse
-6. random
+1. numpy v.XX
+2. dill v.XX
+3. sklearn v.XX
+4. pandas v.XX
+5. argparse v.XX
 
 ## HPA Protein Embedding
 
-Human Protein Atlas image embedding is performed using code available at https://github.com/CellProfiling/densenet.
+Code for embedding Human Protein Atlas images is available at https://github.com/CellProfiling/densenet.
 
 ## BioPlex Protein Embedding
 
