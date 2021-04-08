@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import sys
 import os
+from sklearn.model_selection import train_test_split, KFold
+from numpy.random import choice
 from file_utils import *
 from df_utils import *
 
@@ -68,9 +70,9 @@ def format_x_and_y_data(workdir):
             if len(ridx) == 0:
                 continue
             if len(ridx) < n:
-                rand_idx = choice(ridx, n, replace=True)
+                rand_idx = np.random.choice(ridx, n, replace=True)
             else:
-                rand_idx = choice(ridx, n, replace=False)
+                rand_idx = np.random.choice(ridx, n, replace=False)
             sample_index = np.concatenate((sample_index, rand_idx))
         print('Sampled {} training samples for batch {}'.format(len(sample_index), batch))
         np.save('{}/train_idx_{}.balanced.npy'.format(outputdir, batch), sample_index)

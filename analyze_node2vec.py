@@ -15,7 +15,7 @@ parser.add_argument('--prefix', help='Prefix for output files')
 parser.add_argument ('--gene_list', help='list of genes to analyze')
 args = parser.parse_args()
 
-workdir = args.outprefix
+outputdir = args.outprefix
 emd = args.emd
 prefix = args.prefix
 

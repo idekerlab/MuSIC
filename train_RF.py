@@ -6,19 +6,6 @@ import os
 import argparse
 from file_utils import *
 
-parser = argparse.ArgumentParser(description='Arguments for Random Forest Regressor')
-parser.add_argument('--sdir', help='directory with train and test data')
-parser.add_argument('--n_estimators', type=int)
-parser.add_argument('--max_depth', type=int)
-parser.add_argument('--max_features')
-parser.add_argument('--n2v_prefix', help='the label for node2vec feature')
-parser.add_argument('--densenet_prefix', help='the label for image feature')
-parser.add_argument('--outputdir', help='output directory')
-args = parser.parse_args()
-
-for batch in range(1, 6):
-    for fold in range(1,7):
-        train_RF(args.max_features, batch, fold, args.densenet_prefix, args.n2v_prefix, args.max_depth, args.n_estimators, args.sdir, args.outputdir)
 
 def train_RF(arg_max_features, batch, img_fold, img_label, ppi_label, max_depth, n_estimators, sdir, outdir):
     # format max_features
@@ -76,3 +63,19 @@ def train_RF(arg_max_features, batch, img_fold, img_label, ppi_label, max_depth,
     save_obj(rf, outfname)
 
     print('=== finished! ===')
+
+
+parser = argparse.ArgumentParser(description='Arguments for Random Forest Regressor')
+parser.add_argument('--sdir', help='directory with train and test data')
+parser.add_argument('--n_estimators', type=int)
+parser.add_argument('--max_depth', type=int)
+parser.add_argument('--max_features')
+parser.add_argument('--n2v_prefix', help='the label for node2vec feature')
+parser.add_argument('--densenet_prefix', help='the label for image feature')
+parser.add_argument('--outputdir', help='output directory')
+args = parser.parse_args()
+
+for batch in range(1, 6):
+    for fold in range(1,7):
+        train_RF(args.max_features, batch, fold, args.densenet_prefix, args.n2v_prefix, args.max_depth, args.n_estimators, args.sdir, args.outputdir)
+

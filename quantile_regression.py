@@ -127,8 +127,8 @@ plt.ylabel('Resnik similarity')
 plt.savefig('{}.resRfPred_VS_ytrue.kde.png'.format(outprefix), format='png')
 
 
-res_rf_pred = np.load('{}/0.2_balanced.res_rf_pred.npy'.format(outdir))
-res = load_obj('{}/0.2_balanced.summary.pkl'.format(outdir))
+res_rf_pred = np.load('{}.res_rf_pred.npy'.format(outprefix))
+res = load_obj('{}.summary.pkl'.format(outprefix))
 
 def predict(res, x):
     return res.params['rf_pred'] * x + res.params['Intercept']

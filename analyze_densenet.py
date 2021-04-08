@@ -15,12 +15,11 @@ parser.add_argument('--prefix', help='densenet embedding prefix E.g. densenet_ra
 args = parser.parse_args()
 
 workdir = args.outprefix
-img_info = args.img_info
+img_info = load_obj(args.img_info)
 img_emd = args.img_emd
 label = args.prefix
 
 # Split into six folds
-print(img_info.shape)
 if not os.path.exists('{}/densenet_emb_sim'.format(workdir)):
     os.mkdir('{}/densenet_emb_sim'.format(workdir))
 for i in range(1, 7):
