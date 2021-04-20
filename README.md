@@ -32,7 +32,7 @@ We are here providing the 1024-dimension embeddings for the 1,451 images used in
 python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix 
 ```
 
-## Compute protein similarities
+## Random forest prediction of protein distances
 
 ### Analyze densenet results
 
@@ -74,9 +74,6 @@ python analyze_node2vec.py --outprefix /path/to/output/folder/ --idx_to_name /pa
 
 `--gene_list` Full path to file containing genes to analyze (Example file img_x_ppi.661.genelist.npy is included in Examples folder)
 
-## Format inputs for random forest
-
-This script formats all data for the random forest training and testing algorithm. 
 
 ### Usage
 ```
