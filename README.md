@@ -4,10 +4,10 @@ The eukaryotic cell is a multi-scale structure with modular organization across 
 
 <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub overview.png" width="400">
 
-### Portal page
+#### Portal page
 https://nrnb.org/music/
 
-### Citing MuSIC
+#### Citing MuSIC
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
@@ -15,15 +15,8 @@ Please cite **[Qin et al., “Mapping cell structure across scales by fusing pro
 - Users are expected to be familiar with Github and Python 3.
 - We recommend using high performance computing to run the MuSIC pipeline on new datasets. 
 
-## Data sources
-
-
-
 ## Data embeddings
-
-
-
-
+In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each protein in respect of the measurement platform that best capture the properties of respective protein. Of note, we recommend using the same number of dimensions for the embedding of each data modality.
 
 
 
