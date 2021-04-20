@@ -11,36 +11,26 @@ https://nrnb.org/music/
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
-## General computational requirements:
-- Users are expected to be familiar with Github and Python 3.
-- We recommend using high performance computing to run the MuSIC pipeline on new datasets. 
+## Dependency:
+Anaconda users please install relevant packages with the following command lines:
+```
+conda env create -f environment.yml
+source activate music
+```
+To perform pan-resolution community detection as in MuSIC, please install [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0) and [alignOntology](https://github.com/mhk7/alignOntology). We recommend using high performance computing to run the MuSIC pipeline on new datasets.
+
 
 ## Data embeddings
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each protein with respect to the specific measurement platform. Of note, we recommend using the same number of dimensions for the embedding of each data modality.
 
+#### HPA immunofluorescence image embedding
+We are here providing the 1024-dimension embeddings for the 1,451 images used in MuSIC v1. Please refer to https://github.com/CellProfiling/densenet for image embedding code.
 
-## BioPlex Protein Embedding
+#### BioPlex Protein Embedding
 
-This script downloads the BioPlex interaction network and formats it for node2vec embedding.
-
-### Specific Requirements
-1. python 2.7
-2. networkx v1.11
-3. gensim v0.13.3
-4. ndex
-5. [node2vec](https://github.com/aditya-grover/node2vec)
-
-### Usage
 ```
 python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix 
 ```
-
-### Required arguments for preprocess_node2vec.py:
-`--outprefix` Full path to the folder where results will be saved with unique file identifier.
-
-See [node2vec](https://github.com/aditya-grover/node2vec) for info on requirements and running node2vec
-
-Example: python /path/to/node2vec/src/main.py --input  /path/to/output/folder/filePrefix/bioplex_edges.txt --output  /path/to/output/folder/dim_1024_p_2_q_1.emd --dimensions 1024 --p 2 --q 1
 
 ## Compute protein similarities
 
@@ -153,15 +143,7 @@ python pred_RF.py --modelfname_prefix /path/to/folder/with/saved/models/densenet
 
 `--rest_gp_input` Full path to file with gene pairs not in Gene Ontology (Example file rest_genepair.npy in Examples folder) 
 
-## Community detection and processing
-
-### Specific Requirements
-1. [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0)
-2. [louvain-igraph v0.6.1](https://github.com/vtraag/louvain-igraph)
-3. [DDOT](https://github.com/michaelkyu/ddot)
-4. [alignOntology](https://github.com/mhk7/alignOntology)
-5. networkx ≥v2.3
-6. igraph
+## Pan-resolution community detection
 
 ### Usage
 ```
