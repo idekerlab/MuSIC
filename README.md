@@ -2,18 +2,24 @@
 ## What is MuSIC?
 The eukaryotic cell is a multi-scale structure with modular organization across at least four orders of magnitude. Two central approaches for mapping this structure – protein fluorescent imaging and protein biophysical association – each generate extensive datasets, but of distinct qualities and resolutions that are typically treated separately. Here, we integrate immunofluorescence images in the Human Protein Atlas with affinity purification experiments from the BioPlex resource to create a unified hierarchical map of eukaryotic cell architecture. Integration involves configuring each approach to produce a general measure of protein distance, then calibrating the two measures using machine learning. The evolving map is called the Multi-Scale Integrated Cell (MuSIC).
 
-<img src="https://github.com/idekerlab/MuSIC/blob/master/Examples/music_workflow_overview.png" width="400">
+<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub overview.png" width="600">
 
-## Overall Requirements 
-1. numpy v.XX
-2. dill v.XX
-3. sklearn v.XX
-4. pandas v.XX
-5. argparse v.XX
+## General computational requirements:
+- Users are expected to be familiar with Github and Python 3.
+- We recommend using high performance computing to run the MuSIC pipeline on new datasets. 
 
-## HPA Protein Embedding
+## Data sources
 
-Code for embedding Human Protein Atlas images is available at https://github.com/CellProfiling/densenet.
+
+
+## Data embeddings
+
+
+
+
+
+
+
 
 ## BioPlex Protein Embedding
 
