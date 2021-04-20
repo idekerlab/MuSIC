@@ -18,6 +18,8 @@ Please cite **[Qin et al., “Mapping cell structure across scales by fusing pro
 ## Data embeddings
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each protein with respect to the specific measurement platform. Of note, we recommend using the same number of dimensions for the embedding of each data modality.
 
+#### HPA immunofluorescence image embedding
+We are here providing the 1024-dimension embeddings for the 1,451 images used in MuSIC v1. Please refer to https://github.com/CellProfiling/densenet for image embedding code.
 
 ## BioPlex Protein Embedding
 
