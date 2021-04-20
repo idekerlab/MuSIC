@@ -16,9 +16,7 @@ Please cite **[Qin et al., “Mapping cell structure across scales by fusing pro
 - We recommend using high performance computing to run the MuSIC pipeline on new datasets. 
 
 ## Data embeddings
-In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each protein in respect of the measurement platform that best capture the properties of respective protein. Of note, we recommend using the same number of dimensions for the embedding of each data modality.
-
-
+In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each protein with respect to the specific measurement platform. Of note, we recommend using the same number of dimensions for the embedding of each data modality.
 
 
 ## BioPlex Protein Embedding
