@@ -11,9 +11,14 @@ https://nrnb.org/music/
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
-## General computational requirements:
-- Users are expected to be familiar with Github and Python 3.
-- We recommend using high performance computing to run the MuSIC pipeline on new datasets. 
+## Dependency:
+Anaconda users please install relevant packages with the following command lines:
+```
+conda env create -f environment.yml
+source activate music
+```
+We recommend using high performance computing to run the MuSIC pipeline on new datasets.
+
 
 ## Data embeddings
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each protein with respect to the specific measurement platform. Of note, we recommend using the same number of dimensions for the embedding of each data modality.
