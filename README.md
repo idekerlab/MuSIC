@@ -21,28 +21,11 @@ In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immun
 #### HPA immunofluorescence image embedding
 We are here providing the 1024-dimension embeddings for the 1,451 images used in MuSIC v1. Please refer to https://github.com/CellProfiling/densenet for image embedding code.
 
-## BioPlex Protein Embedding
+#### BioPlex Protein Embedding
 
-This script downloads the BioPlex interaction network and formats it for node2vec embedding.
-
-### Specific Requirements
-1. python 2.7
-2. networkx v1.11
-3. gensim v0.13.3
-4. ndex
-5. [node2vec](https://github.com/aditya-grover/node2vec)
-
-### Usage
 ```
 python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix 
 ```
-
-### Required arguments for preprocess_node2vec.py:
-`--outprefix` Full path to the folder where results will be saved with unique file identifier.
-
-See [node2vec](https://github.com/aditya-grover/node2vec) for info on requirements and running node2vec
-
-Example: python /path/to/node2vec/src/main.py --input  /path/to/output/folder/filePrefix/bioplex_edges.txt --output  /path/to/output/folder/dim_1024_p_2_q_1.emd --dimensions 1024 --p 2 --q 1
 
 ## Compute protein similarities
 
