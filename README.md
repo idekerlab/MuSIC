@@ -1,6 +1,6 @@
 # Multi-Scale Integrated Cell (MuSIC)
 
-![Overview](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub overview.png)
+![Overview](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_overview.png)
 
 #### Comprehensive information for MuSIC available at:
 https://nrnb.org/music/
