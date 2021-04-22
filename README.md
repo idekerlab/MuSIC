@@ -13,7 +13,7 @@ The eukaryotic cell is a multi-scale structure with modular organization across 
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
-## Dependency:
+## Dependency
 Anaconda users please install relevant packages with the following command lines:
 ```
 conda env create -f environment.yml
