@@ -31,6 +31,7 @@ In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immun
 We here provide the 1024-dimension embeddings for the 1,451 images used in MuSIC v1 (see Example folder). Please refer to https://github.com/CellProfiling/densenet for image embedding code.
 
 #### BioPlex Protein Embedding
+We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC v1, as well as embeddings for all 10,961 BioPlex v2 proteins generated in MuSIC v1 study (see Example folder). In original MuSIC v1 study, 
 
 ```
 python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix 
