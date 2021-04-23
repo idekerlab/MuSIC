@@ -2,8 +2,7 @@
 
 ![Overview](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_overview.png)
 
-#### Comprehensive information for MuSIC available at:
-https://nrnb.org/music/
+#### Comprehensive information for MuSIC available at https://nrnb.org/music/
 
 
 ## What is MuSIC?
