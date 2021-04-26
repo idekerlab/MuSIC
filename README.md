@@ -45,13 +45,15 @@ As a means of calibrating distance in the embeddings to physical distance in cel
 python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/proteins/to/analyze 
 			   	      --outprefix /path/to/output/folder/filePrefix 
 ```
-### Required arguments for calibrate_pairwise_distance.py:
+#### Required arguments for calibrate_pairwise_distance.py:
 `--protein_file` Path to the file containing list of proteins to analyze. E.g., /Examples/MuSIC_proteins.txt
 
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier.
 
-### Optional arguments for community_detection.py:
+#### Optional arguments for community_detection.py:
 `--C_file` Path to precomputed matrix containing the size (number of proteins) of smallest Gene Ontology component shared by the gene pair. Computing protein pairwise C matrix can be time consuming when analyzing a large number (a few thousands) of proteins, so we also provide pre-computed protein pairwise C matrix for all 18,395 proteins in Gene Ontology (https://www.dropbox.com/s/w9lxpnw39g64zs8/all_protein_min_GO_size.txt?dl=0).
+
+
 
 ## Random forest prediction of protein distances
 
@@ -176,7 +178,7 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 *Note: maximum clique finding is NP-hard, although utilized a heuristic approach, CliXO can still take a long time to finish.*
 
-### Required arguments for community_detection.py:
+#### Required arguments for community_detection.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier.
 
 `--path_to_clixo` Full path to CliXO folder.
@@ -185,7 +187,7 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 `--path_to_alignOntology` Full path to alignOntology folder.
 
-### Optional arguments for community_detection.py:
+#### Optional arguments for community_detection.py:
 `--clixo_a` CliXO -a flag: for the step size of hierarchy construction; usually, a smaller value will create "deeper" hierarchies with more levels from leaves to the root. (default: 0.1)
 
 `--clixo_b` CliXO -b flag: for merging overlapping communities. Two existing communities will be merged if their similarity is above the threshold defined by this value. Usually a higher value will create a hierarchy with more smaller communities", which looks "broader". (default: 0.5)
