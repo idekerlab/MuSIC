@@ -59,7 +59,12 @@ python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/prote
 
 ## Random forest prediction of protein distances
 ![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_RandomForest.png)
-Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities.
+Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities. Depending on number of features and samples, training a random forest regressor could take a long time and need a large amount of computational resource. For example, each random forest regressor in the original MuSIC study was trained with ~1M samples consisted of 2060 input features, requiring ~1 day and >100 Gb memory with 24 threads. 
+
+#### Note
+1) Original MuSIC study used only immunofluorescence images and protein physical association data. However, the MuSIC pipeline design is generalizable to any number of data modalities and here we allow user input any number of data modalities to integrate.
+2) We recommend keeping number of input features to random forest model the same for each data modality.
+3) The amount of training time and computational resource can be decreased by using less number of samples and embedding data modalities into smaller number of dimensions.
 
 ### Usage
 ```
@@ -68,7 +73,14 @@ python random_forest_samples.py --outprefix /path/to/output/folder/filePrefix
 			        --emd_files /path/to/embedding/file1 /path/to/embedding/file2 ...
 			        --emd_label emd1 emd2 ...			    
 ```
+To facilitate concurrent training of multiple random forest regressors with high performance computing, we here provide stand alone script for training and predicting random forest model.
 
+```
+python random_forest_samples.py --outprefix /path/to/output/folder/filePrefix
+				--fold 1
+			        --emd_label emd1 emd2 ...
+				--train_set 1 2 ...
+```
 
 #### Required arguments for random_forest_samples.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier. Note that this needs to be the same as previous calibration step.
