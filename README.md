@@ -40,8 +40,9 @@ python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix
 
 
 ## Calibrate protein-protein distance and proximity from Gene Ontology
-As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter. The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (**Calibration Function**).
 ![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/Github_calibration.png)
+
+As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter. The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (**Calibration Function**).
 
 ### Usage
 ```
@@ -59,6 +60,16 @@ python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/prote
 
 
 ## Random forest prediction of protein distances
+![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_RandomForest.png)
+Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities.
+
+
+
+
+
+
+
+
 
 ### Analyze densenet results
 
