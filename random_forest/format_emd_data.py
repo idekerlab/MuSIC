@@ -4,13 +4,16 @@ import os
 from random import randint
 import random
 import argparse
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
 cdDir = '/'.join(x for x in os.path.dirname(os.path.abspath(__file__)).split('/')[:-1])
 sys.path.append(cdDir)
 from music_utils import *
 
-def format_emd(emd_file, emd_label, proteins, num_set='auto'):
+def format_emd(emd_file, emd_label, proteins, outprefix, num_set='auto'):
     '''
     Format embedding file into different training sets and calculate pairwise protein similarity for each set.
     
@@ -21,9 +24,10 @@ def format_emd(emd_file, emd_label, proteins, num_set='auto'):
                                        second column is protein name; 
                                        following columns are embedding values.
                                        Please refer to /Examples/IF_image_embedding.csv as guideline.
-        emd_label: Label of the embedding file. E.g., IF_emd, APMS_emd
+        emd_label: label of the embedding file. E.g., IF_emd, APMS_emd
         num_set: {'auto', 1, 2, 3, ...} number of training sets to generate. 
                  'auto': num_set set to the maximum number of embeddings a protein has in the emd_file.
+        outprefix: full path to the folder where results will be saved in with unique file identifier. 
     '''
     emd = pd.read_csv(emd_file, index_col=0, header=None)
 
@@ -52,6 +56,7 @@ def format_emd(emd_file, emd_label, proteins, num_set='auto'):
             random.shuffle(gsample)
             sample_emd_idx.append(gsample[:num_set])
     for i in range(1, num_set+1):
+        print('Start calculating pairwise protein similarity for {} with training set {} ...'.format(emd_label, i))
         outdir = '{}_{}/training_set_{}'.format(outprefix, emd_label, i)
         if not os.path.exists(outdir):
             os.mkdir(outdir)
@@ -63,7 +68,7 @@ def format_emd(emd_file, emd_label, proteins, num_set='auto'):
 
         # Compute protein pairwise similarity: cosine, Manhattan, Pearson, Spearman, Kendall, Euclidean
         df = emd.loc[set_emdid]
-        df.index = proteins
+        df.set_index(1, inplace=True)
         cos_sim = cosine_similarity_scaled(df)
         save_obj(cos_sim, '{}/cosine.scaled.pkl'.format(outdir))
         mht_sim = manhattan_similarity(df)
@@ -110,8 +115,8 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
         rest_gp: gene pairs that lack specific annotations in Gene Ontology
     '''
     sample_dir = '{}_train_test_data'.format(outprefix)
-    X_train_gp = np.load('{}/X_train_genepair_{}.npy'.format(sample_dir, fold))
-    X_test_gp = np.load('{}/X_test_genepair_{}.npy'.format(sample_dir, fold))
+    X_train_gp = np.load('{}/X_train_genepair_{}.npy'.format(sample_dir, fold), allow_pickle=True)
+    X_test_gp = np.load('{}/X_test_genepair_{}.npy'.format(sample_dir, fold), allow_pickle=True)
 
     workdir = '{}_{}/training_set_{}'.format(outprefix, emd_label, train_set)
     cosine = load_obj('{}/cosine.scaled.pkl'.format(workdir))
@@ -124,8 +129,8 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
     emdID = [x for x in emdID_to_gname]
     gname = [emdID_to_gname[x] for x in emdID_to_gname]
 
-    emd = load_obj(emdfile).loc[emdID]
-    emd.index = gname
+    emd = pd.read_csv(emdfile, index_col=0, header=None).loc[emdID]
+    emd.set_index(1, inplace=True)
 
     X_train = []
     for gp in X_train_gp:
@@ -140,7 +145,7 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
         feature += list(np.abs(emd.loc[ga].values - emd.loc[gb].values))
         X_train.append(feature)    
     X_train = np.asarray(X_train)
-    np.save('{}/X_train_{}.by_gp.npy'.format(workdir, fold), X_train)
+    np.save('{}/X_train_{}.by_gp.npy'.format(workdir, fold), X_train, allow_pickle=True)
     print('... finished formatting and saving training data for {} (fold {}, train set {})'.format(emd_label, 
                                                                                                    fold, train_set))
 
@@ -157,7 +162,7 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
         feature += list(np.abs(emd.loc[ga].values - emd.loc[gb].values))
         X_test.append(feature)    
     X_test = np.asarray(X_test)
-    np.save('{}/X_test_{}.npy'.format(workdir, fold), X_test)
+    np.save('{}/X_test_{}.npy'.format(workdir, fold), X_test, allow_pickle=True)
     print('... finished formatting and saving testing data for {} (fold {}, train set {})'.format(emd_label, 
                                                                                                   fold, train_set))
     gp_data = []
@@ -173,7 +178,7 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
         feature += list(np.abs(emd.loc[ga].values - emd.loc[gb].values))
         gp_data.append(feature)
     gp_data = np.asarray(gp_data)
-    np.save('{}/rest_genepair.npy'.format(workdir), gp_data)
+    np.save('{}/rest_genepair.npy'.format(workdir), gp_data, allow_pickle=True)
     print('... finished formatting and saving rest genepair data (train set {})'.format(train_set))
 
     return

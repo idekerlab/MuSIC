@@ -8,7 +8,6 @@ from numpy.random import choice
 from random import randint
 import random
 import argparse
-import seaborn as sns
 cdDir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(cdDir + '/random_forest')
 from music_utils import *
@@ -63,13 +62,13 @@ if not os.path.exists('{}.calibrated_distance.csv'.format(outprefix)):
 # Format each embedding file into specified training sets and calculate pairwise protein similarity.
 for i in range(len(args.emd_files)):
     if args.num_set is None:
-        print('Formatting {} using file {}...'.format(args.emd_label[i], args.emd_files[i]))
-        format_emd(args.emd_files[i], args.emd_label[i], proteins)
+        print('Formatting {} using file {} ...'.format(args.emd_label[i], args.emd_files[i]))
+        format_emd(args.emd_files[i], args.emd_label[i], proteins, outprefix)
     else:
-        print('Formatting {} into {} training sets using file {}...'.format(args.emd_label[i], 
+        print('Formatting {} into {} training sets using file {} ...'.format(args.emd_label[i], 
                                                                             args.num_set[i],
                                                                             args.emd_files[i]))
-        format_emd(args.emd_files[i], args.emd_label[i], proteins, num_set=args.num_set[i])
+        format_emd(args.emd_files[i], args.emd_label[i], proteins, outprefix, num_set=args.num_set[i])
     print('\n')
 
 # Create directory to store training and testing samples
@@ -91,18 +90,18 @@ for train_index, test_index in kf.split(X):
     batch += 1
     X_train, X_test = X[train_index], X[test_index]
     y_train, y_test = y[train_index], y[test_index]
-    np.save('{}/X_train_genepair_{}.npy'.format(sample_dir, batch), X_train)
-    np.save('{}/X_test_genepair_{}.npy'.format(sample_dir, batch), X_test)
-    np.save('{}/y_train_genepair_{}.npy'.format(sample_dir, batch), y_train)
-    np.save('{}/y_test_genepair_{}.npy'.format(sample_dir, batch), y_test)
+    np.save('{}/X_train_genepair_{}.npy'.format(sample_dir, batch), X_train, allow_pickle=True)
+    np.save('{}/X_test_genepair_{}.npy'.format(sample_dir, batch), X_test, allow_pickle=True)
+    np.save('{}/y_train_genepair_{}.npy'.format(sample_dir, batch), y_train, allow_pickle=True)
+    np.save('{}/y_test_genepair_{}.npy'.format(sample_dir, batch), y_test, allow_pickle=True)
 # Balance training sample for each fold
 for fold in range(1, args.k+1):
     balance_sample(sample_dir, fold, args.n_samples)
     
 # Format gene pairs that lack specific annotation in Gene Ontology
 rest_gp = []
-annot_proteins = np.load('{}.annot_proteins.npy'.format(outprefix))
-unannot_proteins = np.load('{}.not_annot_proteins.npy'.format(outprefix))
+annot_proteins = np.load('{}.annot_proteins.npy'.format(outprefix), allow_pickle=True)
+unannot_proteins = np.load('{}.not_annot_proteins.npy'.format(outprefix), allow_pickle=True)
 for i in range(len(unannot_proteins)-1):
     for j in range(i+1, len(unannot_proteins)):
         rest_gp.append([unannot_proteins[i], unannot_proteins[j]])
@@ -110,7 +109,7 @@ for i in range(len(unannot_proteins)):
     for j in range(len(annot_proteins)):
         rest_gp.append([unannot_proteins[i], annot_proteins[j]])
 rest_gp = np.asarray(rest_gp)
-np.save('{}_rest_genepair.npy'.format(outprefix), rest_gp)
+np.save('{}_rest_genepair.npy'.format(outprefix), rest_gp, allow_pickle=True)
 
 # Generate protein pairwise features input to random forest
 print('Start generating protein pairwise features input to random forest...')
