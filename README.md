@@ -76,10 +76,9 @@ python random_forest_samples.py --outprefix /path/to/output/folder/filePrefix
 To facilitate concurrent training of multiple random forest regressors with high performance computing, we here provide stand alone script for training and predicting random forest model.
 
 ```
-python random_forest_samples.py --outprefix /path/to/output/folder/filePrefix
-				--fold 1
-			        --emd_label emd1 emd2 ...
-				--train_set 1 2 ...
+python run_random_forest.py --outprefix /path/to/output/folder/filePrefix
+			    --fold 1
+			    --emd_label emd1 emd2 ...
 ```
 
 #### Required arguments for random_forest_samples.py:
@@ -97,6 +96,23 @@ python random_forest_samples.py --outprefix /path/to/output/folder/filePrefix
 `--n_samples` Maximum number of samples to train/test random forest regressor in each fold of k-fold cross validation (default: 1000000).
 
 `--k` Specify k for k-fold cross validation (default: 5).
+
+#### Required arguments for run_random_forest.py:
+`--outprefix` Full path to the folder where results will be saved in with unique file identifier. Note that this needs to be the same as previous calibration step.
+
+`--fold` Specify which fold of k-fold cross validation to train.
+
+`--emd_label` Label for each embedding file. Enter in the order of `--emd_files`. E.g., IF_emd, APMS_emd
+
+#### Optional arguments for run_random_forest.py:
+`--train_set` For each embedding data, specify which training set to use. In order with `emd_label`. Default to 1 for each emd_label.
+
+`--n_estimators` The number of trees in the forest (default: 1000).
+
+`--max_depth` The maximum depth of the tree (default: 30).
+
+`--n_jobs` The number of jobs to run in parallel for training random forest regressor (default: 8).
+
 
 
 ## Pan-resolution community detection
