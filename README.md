@@ -133,6 +133,7 @@ python pred_RF.py --modelfname_prefix /path/to/folder/with/saved/models/densenet
 `--rest_gp_input` Full path to file with gene pairs not in Gene Ontology (Example file rest_genepair.npy in Examples folder) 
 
 ## Pan-resolution community detection
+![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_CommunityDetection.png)
 
 ### Usage
 ```
