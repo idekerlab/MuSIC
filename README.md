@@ -38,7 +38,7 @@ python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix
 ```
 ## Calibrate protein-protein distance and proximity from Gene Ontology
 As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter (Supplementary Table 2). The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (Calibration Function).
-![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_calibration.png)
+![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/Github_calibration.png)
 
 ### Usage
 ```
