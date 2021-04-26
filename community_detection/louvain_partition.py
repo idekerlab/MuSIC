@@ -7,7 +7,7 @@ import louvain
 import argparse
 cdDir = '/'.join(x for x in os.path.dirname(os.path.abspath(__file__)).split('/')[:-1])
 sys.path.append(cdDir)
-from file_utils import *
+from music_utils import *
 
 
 parser = argparse.ArgumentParser(description='Generate bash file for community detection pipeline.')

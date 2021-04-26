@@ -3,7 +3,7 @@ import numpy as np
 import sys
 import os
 import argparse
-from file_utils import *
+from music_utils import *
 
 
 parser = argparse.ArgumentParser(description='Generate bash file for community detection pipeline.')
