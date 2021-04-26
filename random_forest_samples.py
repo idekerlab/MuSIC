@@ -15,14 +15,14 @@ from music_utils import *
 from format_emd_data import *
 from balance_sample import *
 
-parser = argparse.ArgumentParser(description='')
+parser = argparse.ArgumentParser(description='Generate train/test samples for random forest regressors.')
 parser.add_argument('--outprefix', help='Prefix for files generated. E.g. /path/to/output/directory/fileIdentifier')
 parser.add_argument('--protein_file', help='Path to the file containing list of proteins to analyze. E.g., /Examples/MuSIC_proteins.txt')
 parser.add_argument('--emd_files', nargs='+', help='Path to each embedding file.')
 parser.add_argument('--emd_label', nargs='+', help='Label for each embedding file. In order with <emd_files>.')
 parser.add_argument('--num_set', nargs='+', help='Number of training sets for each embedding file. In order with <emd_files>. Default to auto')
 parser.add_argument('--n_samples', type=int, default=1000000, 
-                    help='Total number of samples to train/test random forest regressor.')
+                    help='Maximum number of samples to train/test random forest regressor.')
 parser.add_argument('--k', type=int, default=5,
                     help='Specify k for k-fold cross-validation.')
 args = parser.parse_args()
