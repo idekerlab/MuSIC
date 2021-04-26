@@ -42,7 +42,8 @@ As a means of calibrating distance in the embeddings to physical distance in cel
 
 ### Usage
 ```
-python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/proteins/to/analyze --outprefix /path/to/output/folder/filePrefix 
+python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/proteins/to/analyze 
+			   	      --outprefix /path/to/output/folder/filePrefix 
 ```
 ### Required arguments for calibrate_pairwise_distance.py:
 `--protein_file` Path to the file containing list of proteins to analyze. E.g., /Examples/MuSIC_proteins.txt
