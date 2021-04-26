@@ -64,14 +64,14 @@ Using the **Calibration Function**, we label every protein pair with a curated p
 
 ### Usage
 ```
-python random_forest_input.py --outprefix /path/to/output/folder/filePrefix
-			      --protein_file /path/to/file/contain/proteins/to/analyze
-			      --emd_files /path/to/embedding/file1 /path/to/embedding/file2 ...
-			      --emd_label emd1 emd2 ...			    
+python random_forest_samples.py --outprefix /path/to/output/folder/filePrefix
+			        --protein_file /path/to/file/contain/proteins/to/analyze
+			        --emd_files /path/to/embedding/file1 /path/to/embedding/file2 ...
+			        --emd_label emd1 emd2 ...			    
 ```
 
 
-#### Required arguments for random_forest_input.py:
+#### Required arguments for random_forest_samples.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier. Note that this needs to be the same as previous calibration step.
 
 `--protein_file` Path to the file containing list of proteins to analyze. E.g., /Examples/MuSIC_proteins.txt
@@ -80,7 +80,7 @@ python random_forest_input.py --outprefix /path/to/output/folder/filePrefix
 
 `--emd_label` Label for each embedding file. Enter in the order of `--emd_files`. E.g., IF_emd, APMS_emd
 
-#### Optional arguments for random_forest_input.py:
+#### Optional arguments for random_forest_samples.py:
 `--num_set` Number of training sets for each embedding file. Enter in the order of `--emd_files` (default: auto).
 
 `--n_samples` Maximum number of samples to train/test random forest regressor in each fold of k-fold cross validation (default: 1000000).
