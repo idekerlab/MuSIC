@@ -70,6 +70,7 @@ python random_forest_input.py --outprefix /path/to/output/folder/filePrefix
 			      --emd_label emd1 emd2 ...			    
 ```
 
+
 #### Required arguments for random_forest_input.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier. Note that this needs to be the same as previous calibration step.
 
@@ -86,47 +87,6 @@ python random_forest_input.py --outprefix /path/to/output/folder/filePrefix
 
 `--k` Specify k for k-fold cross validation (default: 5).
 
-## Train and test random forest
-
-This script trains and tests a random forest model. Note that this step requires a large amount of memory - >100GB were used in this work. 
-
-### Usage 
-```
-python train_RF.py --outputdir /path/to/output/folder/ --sdir /path/to/train/test/data --n_estimators 1000 --max_depth 30 --max_features auto --n2v_prefix dim_1024_p_2_q_1 --densenet_prefix desenet_raw_1024D
-```
-### Required arguments for train_RF.py
-	
-`--outprefix` Full path to the folder where results will be saved in with unique file identifier. 
-
-`--sdir` Full path to the folder training and testing data was saved in format_random_forest.py 
-
-`--n2v_prefix` Prefix for node2vec generated similarity files (E.g. dim_1024_p_2_q_1)
-
-`--densenet_prefix` Prefix for densenet generated similarity files (E.g. densenet_raw_1024D)
-
-`--n_estimators` Random forest number of estimators
-
-`--max_depth` Random forest maximum depth
-
-`--max_features` Random forest max features
-
-## Random forest prediction
-
-This script uses the random forest model to predict protein similarities and aggregates the results into an average predicted similarity.
-
-### Usage 
-```
-python pred_RF.py --modelfname_prefix /path/to/folder/with/saved/models/densenet_raw_1024D.dim_1024_p_2_q_1.RF_maxDep_30_nEst_1000_maxFeat_auto --sdir /path/to/output/folder/train_test_data --outputdir /path/to/output/folder/ --rest_gp_input /path/to/restgenepairs.npy
-```
-### Required arguments for pred_RF.py
-
-`--modelfname_prefix` Full path and prefix to model name prior to batch and fold number (E.g. /path/to/folder/with/saved/models/densenet_raw_1024D.dim_1024_p_2_q_1.RF_maxDep_30_nEst_1000_maxFeat_auto)
-	
-`--outprefix` Full path to the folder where results will be saved in with unique file identifier.
-
-`--sdir` Full path to the folder training and testing data was saved in format_random_forest.py 
-
-`--rest_gp_input` Full path to file with gene pairs not in Gene Ontology (Example file rest_genepair.npy in Examples folder) 
 
 ## Pan-resolution community detection
 ![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_CommunityDetection.png)
