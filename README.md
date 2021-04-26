@@ -78,7 +78,7 @@ python random_forest_input.py --outprefix /path/to/output/folder/filePrefix
 
 `--emd_files` Path to each embedding file generated from different data modalities.
 
-`--emd_label` Label for each embedding file. Enter in the order of `--emd_files`. E.g. IF_emd, APMS_emd
+`--emd_label` Label for each embedding file. Enter in the order of `--emd_files`. E.g., IF_emd, APMS_emd
 
 #### Optional arguments for random_forest_input.py:
 `--num_set` Number of training sets for each embedding file. Enter in the order of `--emd_files` (default: auto).
