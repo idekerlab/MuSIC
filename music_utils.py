@@ -155,3 +155,6 @@ def load_obj(fname, method='pickle'):
         else:
             raise ValueError('Please select method from {pickle, dill}!')
         return
+
+def jaccard(setA, setB):
+    return len(setA.intersection(setB)) / len(setA.union(setB))
