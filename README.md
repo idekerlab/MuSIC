@@ -18,9 +18,6 @@ source activate music
 ```
 To perform pan-resolution community detection as in MuSIC, please install [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0) and [alignOntology](https://github.com/mhk7/alignOntology). 
 
-We recommend using high performance computing to run the MuSIC pipeline on new datasets (TODO: add details).
-
-
 
 
 ## Data embeddings
