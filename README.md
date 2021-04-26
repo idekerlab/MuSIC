@@ -24,6 +24,8 @@ To perform pan-resolution community detection as in MuSIC, please install [CliXO
 We recommend using high performance computing to run the MuSIC pipeline on new datasets (TODO: add details).
 
 
+
+
 ## Data embeddings
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each individual protein with respect to the specific measurement platform. Of note, we recommend embedding each protein in the same number of dimensions for different data types.
 
@@ -36,8 +38,11 @@ We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC
 ```
 python preprocess_node2vec.py --outprefix /path/to/output/folder/filePrefix 
 ```
+
+
+
 ## Calibrate protein-protein distance and proximity from Gene Ontology
-As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter (Supplementary Table 2). The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (Calibration Function).
+As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter (Supplementary Table 2). The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (**Calibration Function**).
 ![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/Github_calibration.png)
 
 ### Usage
