@@ -56,20 +56,17 @@ python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/prote
 
 
 
+
+
 ## Random forest prediction of protein distances
 ![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_RandomForest.png)
 Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities.
 
-
-
-
-
-
-
-
 ### Usage
 ```
-python format_random_forest.py --outprefix /path/to/output/folder/ --go_input /path/to/go_input/human_go_cc.termStats --gene_list /path/to/genelist.npy  --n2v_prefix dim_1024_p_2_q_1 --densenet_prefix desenet_raw_1024D --n2v_gname /path/to/node2vec/dim_1024_p_2_q_1.gname.pkl  --densenet_emdfile /path/to/imageEmbedding.pkl --rest_gp_input /path/to/restgenepairs.npy
+python random_forest_input.py --outprefix /path/to/output/folder/filePrefix
+			      --protein_file /path/to/file/contain/proteins/to/analyze
+			      --emd_files /path/to/embedding/file1 /path/to/embedding/file2 /path/to/embedding/file3 ...
 ```
 
 ### Required arguments for format_random_forest.py
