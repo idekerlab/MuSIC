@@ -165,20 +165,21 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
     np.save('{}/X_test_{}.npy'.format(workdir, fold), X_test, allow_pickle=True)
     print('... finished formatting and saving testing data for {} (fold {}, train set {})'.format(emd_label, 
                                                                                                   fold, train_set))
-    gp_data = []
-    for gp in rest_gp:
-        ga, gb = gp
-        feature = []
-        feature.append(cosine.at[ga, gb])
-        feature.append(pearson.at[ga, gb])
-        feature.append(spearman.at[ga, gb])
-        feature.append(kendall.at[ga, gb])
-        feature.append(manhattan.at[ga, gb])
-        feature.append(euclidean.at[ga, gb])
-        feature += list(np.abs(emd.loc[ga].values - emd.loc[gb].values))
-        gp_data.append(feature)
-    gp_data = np.asarray(gp_data)
-    np.save('{}/rest_genepair.npy'.format(workdir), gp_data, allow_pickle=True)
-    print('... finished formatting and saving rest genepair data (train set {})'.format(train_set))
+    if not os.path.exists('{}/rest_genepair.npy'.format(workdir)):
+        gp_data = []
+        for gp in rest_gp:
+            ga, gb = gp
+            feature = []
+            feature.append(cosine.at[ga, gb])
+            feature.append(pearson.at[ga, gb])
+            feature.append(spearman.at[ga, gb])
+            feature.append(kendall.at[ga, gb])
+            feature.append(manhattan.at[ga, gb])
+            feature.append(euclidean.at[ga, gb])
+            feature += list(np.abs(emd.loc[ga].values - emd.loc[gb].values))
+            gp_data.append(feature)
+        gp_data = np.asarray(gp_data)
+        np.save('{}/rest_genepair.npy'.format(workdir), gp_data, allow_pickle=True)
+        print('... finished formatting and saving rest genepair data (train set {})'.format(train_set))
 
     return
