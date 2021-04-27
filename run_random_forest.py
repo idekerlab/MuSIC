@@ -54,20 +54,20 @@ rf = RandomForestRegressor(max_depth=max_depth,
 print(rf)
 
 sample_dir = '{}_train_test_data'.format(outprefix)
-train_idx = np.load('{}/train_idx_{}.balanced.shuffled.npy'.format(sample_dir, fold))
+train_idx = np.load('{}/train_idx_{}.balanced.shuffled.npy'.format(sample_dir, fold), allow_pickle=True)
 # Load y_train data
-y_train = np.load('{}/y_train_genepair_{}.npy'.format(sample_dir, fold))[train_idx]
+y_train = np.load('{}/y_train_genepair_{}.npy'.format(sample_dir, fold), allow_pickle=True)[train_idx]
 # Load training data for each data modality
 X_train = np.load('{}_{}/training_set_{}/X_train_{}.by_gp.npy'.format(outprefix, 
                                                                       emd_label[0], 
                                                                       train_set[0], 
-                                                                      fold))[train_idx]
+                                                                      fold), allow_pickle=True)[train_idx]
 emd_dim = [X_train.shape[1]]
 for i in range(1, len(emd_label)):
     emd_X_train = np.load('{}_{}/training_set_{}/X_train_{}.by_gp.npy'.format(outprefix, 
                                                                               emd_label[i], 
                                                                               train_set[i], 
-                                                                              fold))[train_idx]
+                                                                              fold), allow_pickle=True)[train_idx]
     emd_dim.append(emd_X_train.shape[1])
     X_train = np.concatenate((X_train, emd_X_train), axis=1)
 print('... loaded training data')
@@ -87,32 +87,32 @@ print('... saved trained random forest regressor')
 print('\nStart predicting test data...')
 X_test = np.load('{}_{}/training_set_{}/X_test_{}.npy'.format(outprefix,
                                                               emd_label[0], 
-                                                              train_set[0], fold))
+                                                              train_set[0], fold), allow_pickle=True)
 for i in range(1, len(emd_label)):
     emd_X_test = np.load('{}_{}/training_set_{}/X_test_{}.npy'.format(outprefix, 
                                                                       emd_label[i], 
-                                                                      train_set[i], fold))
+                                                                      train_set[i], fold), allow_pickle=True)
     X_test = np.concatenate((X_test, emd_X_test), axis=1)
 print('... loaded {} test samples'.format(X_test.shape[0]))
 y_pred = rf.predict(X_test)
 pred_dir = '{}_yPred_output'.format(outprefix)
 if not os.path.exists(pred_dir):
     os.mkdir(pred_dir)
-np.save('{}/{}.npy'.format(pred_dir, outfname.split('/')[-1]), y_pred)
+np.save('{}/{}'.format(pred_dir, outfname.split('/')[-1].replace('pkl', 'npy')), y_pred, allow_pickle=True)
 print('... finished predicting test samples')
-y_test = np.load('{}/y_test_genepair_{}.npy'.format(sample_dir, fold))
+y_test = np.load('{}/y_test_genepair_{}.npy'.format(sample_dir, fold), allow_pickle=True)
 print('Pearson r: {}'.format(pearsonr(y_test, y_pred)[0]))
 
 # Predict gene pairs without specific GO annotations
 print('\nStart predicting gene pairs without specific GO annotations...')
 X_rest = np.load('{}_{}/training_set_{}/rest_genepair.npy'.format(outprefix,
                                                                   emd_label[0], 
-                                                                  train_set[0]))
+                                                                  train_set[0]), allow_pickle=True)
 for i in range(1, len(emd_label)):
     emd_X_rest = np.load('{}_{}/training_set_{}/rest_genepair.npy'.format(outprefix, 
                                                                           emd_label[i], 
-                                                                          train_set[i]))
+                                                                          train_set[i]), allow_pickle=True)
     X_rest = np.concatenate((X_rest, emd_X_rest), axis=1)
 y_rest = rf.predict(X_rest)
-np.save('{}/{}.restGP.npy'.format(pred_dir, outfname.split('/')[-1]), y_rest)
-print('=== finished! ===')
+np.save('{}/{}.restGP.npy'.format(pred_dir, outfname.split('/')[-1].replace('.pkl', '')), y_rest, allow_pickle=True)
+print('\n=== finished! ===')
