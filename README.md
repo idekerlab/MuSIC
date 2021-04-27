@@ -115,6 +115,10 @@ python run_random_forest.py --outprefix /path/to/output/folder/filePrefix
 ## Pan-resolution community detection
 ![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_CommunityDetection.png)
 
+Protein communities were identified at multiple resolutions, starting with those that form at the smallest protein-protein distances then progressively relaxing the distance threshold (multi-scale community detection). Communities at smaller distances were contained, in full or in part, inside larger communities as the threshold was relaxed, yielding a structural hierarchy.
+
+Here, we require an approach to network community detection that has two key properties. First is the ability to identify protein communities that form at multiple stringencies of analysis, resulting in a spectrum of community sizes (multi-scale). Second is the ability to identify communities overlapping at multiple extents (i.e., which share common members), including communities that nest partially or wholly within multiple others (pleiotropy and multi-localization). These properties reflect the biological reality that cells are multi-scale structures with many subcomponents, each of which may be involved in multiple higher-order or pleiotropic processes. Note that maximum clique finding is NP-hard. Although utilizing a heuristic approach, CliXO can still take a long time to finish. For MuSIC, pan-resolution community detecion took around 10 hours.
+
 ### Usage
 ```
 python community_detection.py --outprefix /path/to/output/folder/filePrefix 
@@ -125,8 +129,6 @@ python community_detection.py --outprefix /path/to/output/folder/filePrefix
 bash <outprefix>.sh
 ```
 Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein assignment for each system available in file `<outprefix>.louvain.termStats`.
-
-*Note: maximum clique finding is NP-hard, although utilized a heuristic approach, CliXO can still take a long time to finish.*
 
 #### Required arguments for community_detection.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier.
