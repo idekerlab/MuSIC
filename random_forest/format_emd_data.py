@@ -96,9 +96,9 @@ def format_emd(emd_file, emd_label, proteins, outprefix, num_set='auto'):
                 tmp_ji = jaccard(emdid_set_i, emdid_set_j)
                 ji_df.at['train_set_{}'.format(i), 'train_set_{}'.format(j)] = tmp_ji
                 ji_df.at['train_set_{}'.format(j), 'train_set_{}'.format(i)] = tmp_ji
-        ji_df.to_csv('{}_{}/training_set_distinctness.txt'.format(outprefix, emd_label), sep='\t')
+        ji_df.to_csv('{}_{}/distinctness.txt'.format(outprefix, emd_label), sep='\t')
         sns.heatmap(ji_df)
-        plt.savefig('{}_{}/training_set_distinctness.png'.format(outprefix, emd_label), 
+        plt.savefig('{}_{}/distinctness.png'.format(outprefix, emd_label), 
                     format='png', transparent=True, bbox_inches='tight')
     return
 
@@ -117,7 +117,7 @@ def get_emd_X(outprefix, fold, emdfile, emd_label, train_set, rest_gp):
     sample_dir = '{}_train_test_data'.format(outprefix)
     X_train_gp = np.load('{}/X_train_genepair_{}.npy'.format(sample_dir, fold), allow_pickle=True)
     X_test_gp = np.load('{}/X_test_genepair_{}.npy'.format(sample_dir, fold), allow_pickle=True)
-
+    
     workdir = '{}_{}/training_set_{}'.format(outprefix, emd_label, train_set)
     cosine = load_obj('{}/cosine.scaled.pkl'.format(workdir))
     pearson = load_obj('{}/pearson.scaled.pkl'.format(workdir))

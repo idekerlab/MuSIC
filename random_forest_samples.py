@@ -112,7 +112,7 @@ rest_gp = np.asarray(rest_gp)
 np.save('{}_rest_genepair.npy'.format(outprefix), rest_gp, allow_pickle=True)
 
 # Generate protein pairwise features input to random forest
-print('Start generating protein pairwise features input to random forest...')
+print('\nStart generating protein pairwise features input to random forest...')
 for i in range(len(args.emd_files)):
     avail_train_set = glob('{}_{}/training_set_*'.format(outprefix, args.emd_label[i]))
     avail_train_set = [x.split('_')[-1] for x in avail_train_set]
