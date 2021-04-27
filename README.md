@@ -77,6 +77,11 @@ python run_random_forest.py --outprefix /path/to/output/folder/filePrefix
 			    --fold 1
 			    --emd_label emd1 emd2 ...
 ```
+After all random forest models finished training, the final protein-protein proximity is determined by the average of all availabel predictions.
+```
+python random_forest_output.py --outprefix /path/to/output/folder/filePrefix
+```
+The <outprefix>_predicted_proximity.txt file is used as input for the pan-resolution community detection.
 
 #### Required arguments for random_forest_samples.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier. Note that this needs to be the same as previous calibration step.
