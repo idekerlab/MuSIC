@@ -33,7 +33,7 @@ We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC
 
 
 ## Calibrate protein-protein distance and proximity from Gene Ontology
-![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_calibration.png)
+![Calibration](./Figures/GitHub_calibration.png)
 
 As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter. The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (**Calibration Function**).
 
@@ -55,7 +55,7 @@ python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/prote
 
 
 ## Random forest prediction of protein distances
-![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_RandomForest.png)
+![Calibration](./Figures/GitHub_RandomForest.png)
 Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities. Depending on number of features and samples, training a random forest regressor could take a long time and need a large amount of computational resource. For example, each random forest regressor in the original MuSIC study was trained with ~1M samples consisted of 2060 input features, requiring ~1 day and >100 Gb memory with 24 threads. 
 
 #### Note
@@ -118,7 +118,7 @@ The <outprefix>_predicted_proximity.txt file is used as input for the pan-resolu
 
 
 ## Pan-resolution community detection
-![Calibration](https://github.com/idekerlab/MuSIC/blob/master/Figures/GitHub_CommunityDetection.png)
+![Calibration](./Figures/GitHub_CommunityDetection.png)
 
 Protein communities were identified at multiple resolutions, starting with those that form at the smallest protein-protein distances then progressively relaxing the distance threshold (multi-scale community detection). Communities at smaller distances were contained, in full or in part, inside larger communities as the threshold was relaxed, yielding a structural hierarchy.
 
