@@ -47,7 +47,6 @@ outfname = '{}.{}.RF_maxDep_{}_nEst_{}.fold_{}.pkl'.format(outprefix, '_'.join(x
                                                            max_depth, n_estimators, fold)
 
 print('Trained model will be saved in {}'.format(outfname))
-print('Start training random forest model...')
 # Build Random Forest Model
 rf = RandomForestRegressor(max_depth=max_depth,
                            n_estimators=n_estimators,
@@ -74,7 +73,8 @@ for i in range(1, len(emd_label)):
 print('... loaded training data')
 if len(set(emd_dim)) > 1:
     print('NOTE: we recommend using same number of features for each data modality.')
-print('Start training random forest regressor on {} samples with {} total features...'.format(X_train[0], X_train[1]))
+print('Start training random forest regressor on {} samples with {} total features...'.format(X_train.shape[0], 
+                                                                                              X_train.shape[1]))
 
 
 rf.fit(X_train, y_train)
