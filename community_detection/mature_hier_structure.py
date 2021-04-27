@@ -8,6 +8,13 @@ cdDir = '/'.join(x for x in os.path.dirname(os.path.abspath(__file__)).split('/'
 sys.path.append(cdDir)
 from music_utils import *
 
+def to_pandas_dataframe(G):
+    e = G.edges(data=True)
+    df = pd.DataFrame()
+    df['source'] = [x[0] for x in e]
+    df['target'] = [x[1] for x in e]
+    df['type'] = [x[2]['type'] for x in e]
+    return df
 
 def get_termStats(G, hiergeneset):
     clusters = list(set(list(G.nodes())) - hiergeneset)
@@ -34,7 +41,7 @@ def jaccard(A, B):
     return len(A.intersection(B)) / len(A.union(B))
 
 def clean_shortcut(G):
-    edge_df = nx.to_pandas_edgelist(G)
+    edge_df = to_pandas_dataframe(G)
     edge_df.columns = ['parent', 'child', 'type']
     for idx, row in edge_df.iterrows():
         if len(list(nx.all_simple_paths(G, row['parent'], row['child']))) > 1:
@@ -86,7 +93,7 @@ def merge_parent_child(G, hiergeneset, ji_thre):
     merged = False
     while similar:
         clear = True
-        edge_df = nx.to_pandas_edgelist(G)
+        edge_df = to_pandas_dataframe(G)
         ts_df = get_termStats(G, hiergeneset)
         default_edge = edge_df[edge_df['type'] == 'default']
         for idx, row in default_edge.iterrows():
@@ -121,7 +128,7 @@ def collapse_redundant(G, hiergeneset, cluster_weight, min_diff):
     # One parent-child relationship at a time to avoid complicacies involved in potential long tail
     print('... start removing highly redundant systems')
     while True:
-        edge_df = nx.to_pandas_edgelist(G)
+        edge_df = to_pandas_dataframe(G)
         ts_df = get_termStats(G, hiergeneset)
         default_edge = edge_df[edge_df['type'] == 'default']
         to_collapse = []
@@ -159,7 +166,7 @@ parser.add_argument('--outprefix', help='output_dir/file_prefix for the output f
 parser.add_argument('--ci_thre', type=float, default=0.75, help='Containment index threshold')
 parser.add_argument('--ji_thre', type=float, default=0.9, 
                     help='Jaccard index threshold for merging similar clusters')
-parser.add_argument('--minSystemSize', type=int, default=2, 
+parser.add_argument('--minSystemSize', type=int, default=4, 
                     help='Minimum number of proteins requiring each system to have.')
 parser.add_argument('--path_to_alignOntology', help='Full path to alignOntology.')
 parser.add_argument('--min_diff', type=int, default=1, help='Minimum difference in number of proteins for every parent-child pair.')
@@ -189,7 +196,7 @@ edge_df.drop_duplicates(inplace=True)
 print('# {} duplicate edges removed'.format(input_n - edge_df.shape[0]))
 
 hiergeneset = set(edge_df[edge_df['type'] == 'gene']['child'].values)
-G = nx.from_pandas_edgelist(edge_df, source='parent', target='child', edge_attr='type', create_using=nx.DiGraph())
+G = nx.from_pandas_dataframe(edge_df, source='parent', target='child', edge_attr='type', create_using=nx.DiGraph())
 if not nx.is_directed_acyclic_graph(G):
     raise ValueError('Input hierarchy is not DAG!')
 
@@ -202,7 +209,7 @@ while True:
 collapse_redundant(G, hiergeneset, cluster_weight, args.min_diff)
 # Output as ddot edge file
 clean_shortcut(G)
-edge_df = nx.to_pandas_edgelist(G)
+edge_df = to_pandas_dataframe(G)
 edge_df.to_csv('{}.ddot'.format(outprefix), header=False, index=False, sep='\t')
 cmd = '{}/ontologyTermStats {} genes > {}'.format(args.path_to_alignOntology.rstrip('/'), 
                                                   '{}.ddot'.format(outprefix), 

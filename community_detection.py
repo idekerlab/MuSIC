@@ -16,7 +16,7 @@ parser.add_argument('--clixo_m', type=float, default=0, help='CliXO parameter m.
 parser.add_argument('--clixo_z', type=float, default=0, help='CliXO parameter z.')
 parser.add_argument('--clixo_s', type=float, default=0, help='CliXO parameter s.')
 parser.add_argument('--path_to_alignOntology', help='Full path to alignOntology folder.')
-parser.add_argument('--minSystemSize', type=int, default=2, 
+parser.add_argument('--minSystemSize', type=int, default=4, 
                     help='Minimum number of proteins requiring each system to have.')
 parser.add_argument('--ci_thre', type=float, default=0.75, help='Containment index threshold')
 parser.add_argument('--ji_thre', type=float, default=0.9, 

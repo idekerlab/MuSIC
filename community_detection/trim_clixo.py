@@ -8,7 +8,7 @@ from ddot import Ontology
 
 parser = argparse.ArgumentParser(description='Generate bash file for community detection pipeline.')
 parser.add_argument('--outprefix', help='Prefix for files generated. E.g. /path/to/output/directory/fileIdentifier')
-parser.add_argument('--minSystemSize', type=int, default=2, 
+parser.add_argument('--minSystemSize', type=int, default=4, 
                     help='Minimum number of proteins requiring each system to have.')
 args = parser.parse_args()
 
@@ -20,6 +20,6 @@ ont = Ontology.from_table(f, clixo_format=True)
 tsize = list(zip(ont.terms, ont.term_sizes))
 delete_term = [x[0] for x in tsize if x[1] < minSystemSize]
 trimmed_ont = ont.delete(to_delete=delete_term)
-trimmed_ont = trimmed_ont.collapse_ontology()
+trimmed_ont = trimmed_ont.collapse_ontology(method='python')
 trimmed_ont.to_table(f+'.mintsize{}'.format(minSystemSize), clixo_format=True)
 print('=== finished trim_clixo.py ===')
