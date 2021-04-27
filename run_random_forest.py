@@ -7,7 +7,7 @@ import os
 import argparse
 from music_utils import *
 
-parser = argparse.ArgumentParser(description='Generate train/test samples for random forest regressors.')
+parser = argparse.ArgumentParser(description='Train and evaluate random forest regressors.')
 parser.add_argument('--outprefix', help='Prefix for files generated. E.g. /path/to/output/directory/fileIdentifier')
 parser.add_argument('--fold', type=int, help='Specify which fold of k-fold cross validation to train.')
 parser.add_argument('--emd_label', nargs='+', help='Label for each embedding file.')
