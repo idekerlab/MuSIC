@@ -130,6 +130,7 @@ python community_detection.py --outprefix /path/to/output/folder/filePrefix
                               --path_to_clixo /path/to/CliXO/folder
                               --clixo_i /path/to/clixo/inputFile
                               --path_to_alignOntology /path/to/alignOntology/folder
+			      --predict_nm_size
                               
 bash <outprefix>.sh
 ```
@@ -167,30 +168,4 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 `--keep_all_files` When this flag is provided, all intermediate output files will be kept.
 
-## Calibrate to physical distance
-
-This script calibrates the hierarchy to physical distance.
-
-### Usage 
-```
-python quantile_regression.py --q 0.2 --balance --outdir /path/to/output/folder --rf_pred_path /path/to/file/avg_allyPred.npy --sdir /path/to/output/folder/train_test_data --hierarchy_path /path/to/hierarchy.louvain.termStats --predicted_sim_path /path/to/predicted_resnik_sim.ddot
- ```
-
-### Required arguments for quantile_regression.py
-
-`--q` quantile for quantile regression model
-
-`--outdir` Full path to the folder where results will be saved in with unique file identifier.
-
-`--rf_pred_path` Full path to file with prefix avg_allyPred_modelfname_prefix.npy saved in pred_RF.py
-
-`--sdir` Full path to the folder training and testing data was saved in format_random_forest.py 
-
-`--hierarchy_path` Full path to file with hierarchy saved in community_detection.py with file extension louvain.termStats
-
-`--predicted_sim_path` Full path to random forest predicted similarity matrix predicted_resnik_sim.ddot
-
-### Optional arguments for quantile_regression.py
-
-`--balance` 
-
+`--predict_nm_size` When this flag is provided, all systems will have an estimated size in nm. Note that this calcualtion requries <outprefix>_avgPred_ytrue.csv generated from the random_forest_output.py script in the previous step.
