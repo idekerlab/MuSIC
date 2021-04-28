@@ -130,8 +130,7 @@ python community_detection.py --outprefix /path/to/output/folder/filePrefix
                               --path_to_clixo /path/to/CliXO/folder
                               --clixo_i /path/to/clixo/inputFile
                               --path_to_alignOntology /path/to/alignOntology/folder
-			      --predict_nm_size
-                              
+			      --predict_nm_size                         
 bash <outprefix>.sh
 ```
 Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein assignment for each system available in file `<outprefix>.louvain.termStats`.
