@@ -26,7 +26,7 @@ parser.add_argument('--min_diff', type=int, default=1, help='Minimum difference 
 parser.add_argument('--keep_all_files', help='Keep all intermediate output.', action='store_true')
 parser.add_argument('--predict_nm_size', help='Predict size in nm for each system.', action='store_true')
 parser.add_argument('--n_samples', default=1000000, type=int,
-                    help='Number of samples to use for fitting linear model.')
+                    help='Maximum number of samples to use for fitting linear model.')
 parser.add_argument('--q_step', type=float, default=0.1, help='Step for scanning best quantile to use.')
 args = parser.parse_args()
 
