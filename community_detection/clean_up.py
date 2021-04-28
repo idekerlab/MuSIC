@@ -1,5 +1,6 @@
 import sys
 import os
+import shutil
 import argparse
 
 parser = argparse.ArgumentParser(description='Generate bash file for community detection pipeline.')
@@ -21,3 +22,4 @@ os.remove('{}.node_idx_to_name.dict.pkl'.format(outprefix))
 os.remove('{}.node_name_to_idx.dict.pkl'.format(outprefix))
 os.remove('{}.termStats'.format(outprefix))
 os.remove('{}.wClusterWeight.ddot'.format(outprefix))
+shutil.rmtree('{}_qr'.format(outprefix))

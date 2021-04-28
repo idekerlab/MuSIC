@@ -25,6 +25,9 @@ parser.add_argument('--niter', type=int, default=1000, help='Number of iteration
 parser.add_argument('--min_diff', type=int, default=1, help='Minimum difference in number of proteins for every parent-child pair.')
 parser.add_argument('--keep_all_files', help='Keep all intermediate output.', action='store_true')
 parser.add_argument('--predict_nm_size', help='Predict size in nm for each system.', action='store_true')
+parser.add_argument('--n_samples', default=1000000, type=int,
+                    help='Number of samples to use for fitting linear model.')
+parser.add_argument('--q_step', type=float, default=0.1, help='Step for scanning best quantile to use.')
 args = parser.parse_args()
 
 outprefix = args.outprefix
@@ -65,7 +68,7 @@ with open('{}.sh'.format(outprefix), 'w') as scriptfile:
     scriptfile.write('python {}/community_detection/louvain_partition.py --outprefix {} --clixo_i {} --niter {}\n'.format(cdDir, outprefix, args.clixo_i, args.niter))
     scriptfile.write('python {}/community_detection/cap_louvain.py --outprefix {} --path_to_alignOntology {} --minSystemSize {} --niter {}\n'.format(cdDir, outprefix, args.path_to_alignOntology, args.minSystemSize, args.niter))
     if args.predict_nm_size:
-        scriptfile.write('python {}/community_detection/predict_size.py --outprefix {}\n'.format(cdDir, outprefix))
+        scriptfile.write('python {}/community_detection/predict_size.py --outprefix {} --path_to_alignOntology {} --n_samples {} --q_step {}\n'.format(cdDir, outprefix, args.path_to_alignOntology, args.n_samples, args.q_step))
     if not args.keep_all_files:
         scriptfile.write('python {}/community_detection/clean_up.py --outprefix {}\n'.format(cdDir, outprefix))
 
