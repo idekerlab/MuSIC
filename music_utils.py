@@ -158,3 +158,7 @@ def load_obj(fname, method='pickle'):
 
 def jaccard(setA, setB):
     return len(setA.intersection(setB)) / len(setA.union(setB))
+
+def scaled_P_to_nm(scaled_P):
+    power = -3.968*scaled_P + 4.326
+    return 10**power
