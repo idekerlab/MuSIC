@@ -237,7 +237,6 @@ dependencies:
   - zlib=1.2.11=hfbfcf68_1
   - pip:
     - dataclasses==0.8
-    - ddot==1.0rc4
     - decorator==4.4.2
     - dill==0.3.1.1
     - gensim==4.0.1
@@ -247,7 +246,7 @@ dependencies:
     - matplotlib-venn==0.11.5
     - mygene==3.0.0
     - ndex-dev==3.0.11.41
-    - networkx==2.4
+    - networkx==1.1
     - node2vec==0.4.3
     - numpy==1.19.5
     - opencv-python==4.1.2.30
