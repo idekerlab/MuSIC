@@ -16,6 +16,8 @@ Anaconda users please install relevant packages with the following command lines
 conda env create -f environment.yml
 source activate music
 ```
+The yml file can be platform-dependent. Alternatively, we also provide requirements.txt files for installing necessary python packages.
+
 To perform pan-resolution community detection as in MuSIC, please install [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0), [alignOntology](https://github.com/mhk7/alignOntology), and [DDOT](https://github.com/michaelkyu/ddot). Note for DDOT, the requirements are satisfied, but users need to follow instructions in section *Install the ddot Python package*.
 
 
