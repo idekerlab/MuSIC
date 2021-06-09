@@ -27,7 +27,7 @@ To perform pan-resolution community detection as in MuSIC, please install [CliXO
 
 
 
-## Data embeddings
+## Step 1. Data embeddings
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each individual protein with respect to the specific measurement platform. Of note, we recommend embedding each protein in the same number of dimensions for different data types.
 
 #### HPA immunofluorescence image embedding
@@ -39,7 +39,7 @@ We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC
 
 
 
-## Calibrate protein-protein distance and proximity from Gene Ontology
+## Step 2. Calibrate protein-protein distance and proximity from Gene Ontology
 ![Calibration](./Figures/GitHub_calibration.png)
 
 As a means of calibrating distance in the embeddings to physical distance in cells, we sampled the literature to assemble a reference set of ten subcellular components with known physical sizes, from protein complexes of <20 nm to organelles >1 µm in diameter. The size of each of these ten components strongly correlated with its number of protein species documented in the Gene Ontology (GO), suggesting a general approximate conversion from the number of protein species to diameter, in nanometers, of a cellular component (**Calibration Function**).
@@ -61,7 +61,7 @@ python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/prote
 
 
 
-## Random forest prediction of protein distances
+## Step 3. Random forest prediction of protein distances
 ![Calibration](./Figures/GitHub_RandomForest.png)
 Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities. Depending on number of features and samples, training a random forest regressor could take a long time and need a large amount of computational resource. For example, each random forest regressor in the original MuSIC study was trained with ~1M samples consisted of 2060 input features, requiring ~1 day and >100 Gb memory with 24 threads. 
 
