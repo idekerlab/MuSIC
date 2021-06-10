@@ -185,3 +185,7 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 `--q_step` Step for scanning best quantile to use (default: 0.1).
 
 `--predict_nm_size` When this flag is provided, all systems will have an estimated size in nm. Note that this calcualtion requries <outprefix>_avgPred_ytrue.csv generated from the random_forest_output.py script in the previous step.
+
+	
+## Additional resources
+MuSIC v1 was visualized and explored with Cytoscape. For large hierarchies, Ideker lab has developed a hierarchical visualization webapp [HiView](http://hiview.ucsd.edu/) for a top-down view and interactive experience.
