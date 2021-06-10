@@ -27,7 +27,7 @@ pip install -r ./installation/requirements.txt
 To perform pan-resolution community detection as in MuSIC, **please install:**
 - [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0)
 - [DDOT](https://github.com/michaelkyu/ddot)
-	- **Note:** the dependencies are already satisfied, but users need to follow instructions in section *Install the ddot Python package* to complete installation. 
+	- **Note:** the dependencies are already satisfied, but users need to **follow instructions in section *Install the ddot Python package*** to complete installation. 
 - [alignOntology](https://github.com/mhk7/alignOntology)
 	- **Note:** DDOT has alignOntology in `/ddot/alignOntology` folder. If user has trouble installing  alignOntology from GitHub, user can use path to alignOntology in DDOT for the `--path_to_alignOntology` parameter in the community detection section.
 
