@@ -125,7 +125,7 @@ The <outprefix>_predicted_proximity.txt file is used as input for the pan-resolu
 
 
 
-## Pan-resolution community detection
+## Step 4. Pan-resolution community detection
 ![Calibration](./Figures/GitHub_CommunityDetection.png)
 
 Protein communities were identified at multiple resolutions, starting with those that form at the smallest protein-protein distances then progressively relaxing the distance threshold (multi-scale community detection). Communities at smaller distances were contained, in full or in part, inside larger communities as the threshold was relaxed, yielding a structural hierarchy.
