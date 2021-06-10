@@ -5,6 +5,8 @@ import sys
 from scipy.stats import pearsonr
 import os
 import argparse
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 from music_utils import *
 
 parser = argparse.ArgumentParser(description='Train and evaluate random forest regressors.')
