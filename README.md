@@ -188,4 +188,4 @@ Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein as
 
 	
 ## Additional resources
-MuSIC v1 was visualized and explored with Cytoscape. For large hierarchies, Ideker lab has developed a hierarchical visualization webapp [HiView](http://hiview.ucsd.edu/) for a top-down view and interactive experience.
+MuSIC v1 was visualized and explored with Cytoscape (session file available [here](https://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e8bacf?accesskey=68afa0480a4859906b5d221619ee95679da96059680557f65c3dd9f1842e4930)). Ideker lab has also developed a hierarchical visualization webapp, [HiView](http://hiview.ucsd.edu/), for visualizing hierarchical models and the underlying interaction data that support them.
