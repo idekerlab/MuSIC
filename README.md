@@ -6,6 +6,8 @@
 
 The eukaryotic cell is a multi-scale structure with modular organization across at least four orders of magnitude. Two central approaches for mapping this structure – protein fluorescent imaging and protein biophysical association – each generate extensive datasets, but of distinct qualities and resolutions that are typically treated separately. Here, we integrate immunofluorescence images in the Human Protein Atlas with affinity purification experiments from the BioPlex resource to create a unified hierarchical map of eukaryotic cell architecture. Integration involves configuring each approach to produce a general measure of protein distance, then calibrating the two measures using machine learning. The evolving map is called the Multi-Scale Integrated Cell (MuSIC).
 
+A step-by-step guide to build MuSIC v1 can be found [here](Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb).
+
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
@@ -13,14 +15,14 @@ Please cite **[Qin et al., “Mapping cell structure across scales by fusing pro
 ## Dependency
 Anaconda users please either install relevant packages with the following command lines
 ```
-conda env create -f environment.yml
+conda env create -f ./installation/environment.yml
 source activate music
 ```
 or using requirements.txt if the yml file is not compatible with the user's platform.
 ```
 conda create -n music python=3.6.2 anaconda
 source activate music
-pip install -r requirements.txt
+pip install -r ./installation/requirements.txt
 ```
 
 To perform pan-resolution community detection as in MuSIC, please install [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0), [alignOntology](https://github.com/mhk7/alignOntology), and [DDOT](https://github.com/michaelkyu/ddot). Note for DDOT, the requirements are satisfied, but users need to follow instructions in section *Install the ddot Python package*. Also note that DDOT has alignOntology in `/ddot/alignOntology` folder. If user has trouble installing  alignOntology from GitHub, user can use path to alignOntology in DDOT for the `--path_to_alignOntology` parameter in the community detection section.
