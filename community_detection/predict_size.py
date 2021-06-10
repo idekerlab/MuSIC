@@ -77,6 +77,9 @@ stats_df['prsquared'] = q_stats
 best_q = stats_df.loc[stats_df['prsquared'].idxmax()]['q']
 print('Best quantile for linear fit: {}'.format(best_q))
 res = mod.fit(q=best_q)
+
+df = pd.read_table('{}_predicted_proximity.txt'.format(outprefix), header=None)
+df.columns = ['geneA', 'geneB', 'avg_pred']
 res_rf_pred = res.params['avg_pred'] * df['avg_pred'].values + res.params['Intercept']
 df['linear_adjusted'] = res_rf_pred
 df['nm'] = [scaled_P_to_nm(x) for x in res_rf_pred]
