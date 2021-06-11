@@ -42,7 +42,13 @@ We here provide the 1024-dimension embeddings for the 1,451 images used in MuSIC
 #### BioPlex Protein Embedding
 We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC v1 (/Examples/APMS_embedding.MuSIC.csv), as well as embeddings for all 10,961 BioPlex v2 proteins generated in MuSIC v1 study (https://www.dropbox.com/s/zb1i0vzcsntlcp3/APMS_embedding.BioPlex_v2.csv?dl=0).
 
-
+#### Note:
+- The MuSIC pipeline can handle any number of data types (e.g. IF, APMS, etc.) and any dimension of protein embeddings (i.e. length of feature vector), but all proteins need to have same number of dimension within each individual data type, and we recommend keeping consistent number of dimensions among different types of data. 
+- For customized embedding files, please format file to match the style in the example embedding files:
+	- First column: unique ID for each embedding
+	- Second column: gene name
+	- Following columns: each column is one entry in the embedding vector
+	- Comma separate all columns
 
 
 ## Step 2. Calibrate protein-protein distance and proximity from Gene Ontology
@@ -63,7 +69,15 @@ python calibrate_pairwise_distance.py --protein_file /path/to/file/contain/prote
 #### Optional arguments for community_detection.py:
 `--C_file` Path to precomputed matrix containing the size (number of proteins) of smallest Gene Ontology component shared by the gene pair. Computing protein pairwise C matrix can be time consuming when analyzing a large number (a few thousands) of proteins, so we also provide pre-computed protein pairwise C matrix for all 18,395 proteins in Gene Ontology (https://www.dropbox.com/s/w9lxpnw39g64zs8/all_protein_min_GO_size.txt?dl=0).
 
+### Output file: $outprefix.calibrated_distance.csv
 
+This file stores the calibrated distance and proximity for every pair of input proteins that have annotation in Gene Ontology (GO). Below are specific annotation for each column:
+- **geneA:** name of gene A
+- **geneB:** name of gene B
+- **C:** the number of proteins in the smallest GO cellular component to which both are annotated
+- **D:** protein-protein distance calibrated from GO
+- **log10D:** $\log_{10} D$
+- **P:** protein-protein proximity, $-\log_{10} D$
 
 
 
