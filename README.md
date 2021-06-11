@@ -142,6 +142,13 @@ The <outprefix>_predicted_proximity.txt file is used as input for the pan-resolu
 
 `--n_jobs` The number of jobs to run in parallel for training random forest regressor (default: 8).
 
+### Output file: $outprefix_predicted_proximity.txt
+
+This file stores the predicted protein-protein proximity for all pairs of the given protein.
+- First column: name of gene A
+- Second column: name of gene B
+- Third column: predicted proximity between gene A and gene B
+
 
 
 ## Step 4. Pan-resolution community detection
