@@ -45,7 +45,10 @@ for i in range(len(emd_label)):
     if not os.path.exists('{}_{}/training_set_{}'.format(outprefix, emd_label[i], train_set[i])):
         raise ValueError('{} does not have training set {}'.format(emd_label[i], train_set[i]))
 
-outfname = '{}.{}.RF_maxDep_{}_nEst_{}.fold_{}.pkl'.format(outprefix, '_'.join(x for x in tmp_label), 
+model_dir = '{}_trained_models'.format(outprefix)
+if not os.path.exists(model_dir):
+    os.mkdir(model_dir)
+outfname = '{}/{}.RF_maxDep_{}_nEst_{}.fold_{}.pkl'.format(model_dir, '_'.join(x for x in tmp_label), 
                                                            max_depth, n_estimators, fold)
 
 print('Trained model will be saved in {}'.format(outfname))
