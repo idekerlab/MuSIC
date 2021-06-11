@@ -1,3 +1,5 @@
 output/
 test.ipynb
 test.py
+__pycache__/
+.ipynb_checkpoints/
