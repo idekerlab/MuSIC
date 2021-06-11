@@ -76,8 +76,8 @@ This file stores the calibrated distance and proximity for every pair of input p
 - **geneB:** name of gene B
 - **C:** the number of proteins in the smallest GO cellular component to which both are annotated
 - **D:** protein-protein distance calibrated from GO
-- **log10D:** $\log_{10} D$
-- **P:** protein-protein proximity, $-\log_{10} D$
+- **log10D:** log10(D)
+- **P:** protein-protein proximity, -log10(D)
 
 
 
