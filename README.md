@@ -37,7 +37,7 @@ To perform pan-resolution community detection as in MuSIC, **please install:**
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each individual protein with respect to the specific measurement platform. Of note, we recommend embedding each protein in the same number of dimensions for different data types.
 
 #### HPA immunofluorescence image embedding
-We here provide the 1024-dimension embeddings for the 1,451 images used in MuSIC v1 (/Examples/IF_image_embedding.csv). Please refer to https://github.com/CellProfiling/densenet for image embedding code and contact [Casper Winsnes](mailto:casper.winsnes@scilifelab.se?subject=[GitHub]%20Source%20Han%20Sans) for related questions.
+We here provide the 1024-dimension embeddings for the 1,451 images used in MuSIC v1 (/Examples/IF_image_embedding.csv). Please refer to https://github.com/CellProfiling/densenet for image embedding code and contact [Casper Winsnes](mailto:casper.winsnes@scilifelab.se?subject=[MuSIC%20GitHub]%20Image%20embeddings) for related questions.
 
 #### BioPlex Protein Embedding
 We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC v1 (/Examples/APMS_embedding.MuSIC.csv), as well as embeddings for all 10,961 BioPlex v2 proteins generated in MuSIC v1 study (https://www.dropbox.com/s/zb1i0vzcsntlcp3/APMS_embedding.BioPlex_v2.csv?dl=0).
