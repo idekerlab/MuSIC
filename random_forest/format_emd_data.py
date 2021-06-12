@@ -30,7 +30,9 @@ def format_emd(emd_file, emd_label, proteins, outprefix, num_set='auto'):
         outprefix: full path to the folder where results will be saved in with unique file identifier. 
     '''
     emd = pd.read_csv(emd_file, index_col=0, header=None)
-
+    if len(set(emd.index.values)) != emd.shape[0]:
+        raise ValueError('{} need to have unique identifier for each embedding.'.format(emd_label))
+        
     # Filter for proteins of interest
     emd = emd[emd[1].isin(proteins)]
 
