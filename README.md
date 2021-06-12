@@ -207,6 +207,22 @@ Hierarchy is written in file `$outprefix.louvain.ddot` with specific protein ass
 
 `--predict_nm_size` When this flag is provided, all systems will have an estimated size in nm. Note that this calcualtion requries <outprefix>_avgPred_ytrue.csv generated from the random_forest_output.py script in the previous step.
 
+### Output file: $outprefix.louvain.ddot
+
+This file stores the hierarchical relationship among systems and genes:
+- First column: the parent system 
+- Second column: the child system or gene
+- Third column: property of child
+    - default: child is a system
+    - gene: child is a gene
+
+### Output file: $outprefix.louvain.termStats
+
+This file stores the specific protein assignment for each identified system. First column is the unique identifier for each system. Other columns are annotated below:
+- **Number_of_proteins:** total number of proteins belonging to the system
+- **Proteins:** comma separated list of proteins belonging to the system
+- **median_recal_nm:** median of predicted distance, in nm, among all pairs of proteins in the system
+- **Estimated_size_in_nm:** predicted size, in nm, of the system
 	
 ## Additional resources
 MuSIC v1 was visualized and explored with Cytoscape (session file available [here](https://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e8bacf?accesskey=68afa0480a4859906b5d221619ee95679da96059680557f65c3dd9f1842e4930)). Ideker lab has also developed a hierarchical visualization webapp, [HiView](http://hiview.ucsd.edu/), for visualizing hierarchical models and the underlying interaction data that support them.
