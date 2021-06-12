@@ -212,7 +212,7 @@ Hierarchy is written in file `$outprefix.louvain.ddot` with specific protein ass
 This file stores the hierarchical relationship among systems and genes:
 - First column: the parent system 
 - Second column: the child system or gene
-- Third column: property of child
+- Third column: property of child in the second column
     - default: child is a system
     - gene: child is a gene
 
