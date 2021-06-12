@@ -37,10 +37,10 @@ To perform pan-resolution community detection as in MuSIC, **please install:**
 In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each individual protein with respect to the specific measurement platform. Of note, we recommend embedding each protein in the same number of dimensions for different data types.
 
 #### HPA immunofluorescence image embedding
-We here provide the 1024-dimension embeddings for the 1,451 images used in MuSIC v1 (/Examples/IF_image_embedding.csv). Please refer to https://github.com/CellProfiling/densenet for image embedding code and contact [Casper Winsnes](mailto:casper.winsnes@scilifelab.se?subject=[MuSIC%20GitHub]%20Image%20embeddings) for related questions.
+We here provide the 1024-dimension embeddings for the 1,451 images used in MuSIC v1 (`/Examples/IF_image_embedding.csv`). Please refer to https://github.com/CellProfiling/densenet for image embedding code and contact [Casper Winsnes](mailto:casper.winsnes@scilifelab.se?subject=[MuSIC%20GitHub]%20Image%20embeddings) for related questions.
 
 #### BioPlex Protein Embedding
-We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC v1 (/Examples/APMS_embedding.MuSIC.csv), as well as embeddings for all 10,961 BioPlex v2 proteins generated in MuSIC v1 study (https://www.dropbox.com/s/zb1i0vzcsntlcp3/APMS_embedding.BioPlex_v2.csv?dl=0).
+We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC v1 (`/Examples/APMS_embedding.MuSIC.csv`), as well as embeddings for all 10,961 BioPlex v2 proteins generated in MuSIC v1 study (https://www.dropbox.com/s/zb1i0vzcsntlcp3/APMS_embedding.BioPlex_v2.csv?dl=0).
 
 #### Note:
 - The MuSIC pipeline can handle any number of data types (e.g. IF, APMS, etc.) and any dimension of protein embeddings (i.e. length of feature vector), but all proteins need to have same number of dimension within each individual data type, and we recommend keeping consistent number of dimensions among different types of data. 
@@ -167,7 +167,7 @@ python community_detection.py --outprefix /path/to/output/folder/filePrefix
 			      --predict_nm_size                         
 bash <outprefix>.sh
 ```
-Hierarchy is written in file `<outprefix>.louvain.ddot` with specific protein assignment for each system available in file `<outprefix>.louvain.termStats`.
+Hierarchy is written in file `$outprefix.louvain.ddot` with specific protein assignment for each system available in file `$outprefix.louvain.termStats`.
 
 #### Required arguments for community_detection.py:
 `--outprefix` Full path to the folder where results will be saved in with unique file identifier.
