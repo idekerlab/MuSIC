@@ -6,7 +6,10 @@ The eukaryotic cell is a multi-scale structure with modular organization across 
 
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
-## Installation
+## Download MuSIC v1 map
+The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e8bacf?accesskey=68afa0480a4859906b5d221619ee95679da96059680557f65c3dd9f1842e4930) network is shared via NDEx, an online commons for biological networks, and can be downloaded to Cytoscape by clicking the `Open in Cytoscape` button at the bottom-right of the web page.
+
+## Install MuSIC pipeline
 Anaconda users please either install relevant packages with the following command lines
 ```
 conda env create -f ./installation/environment.yml
@@ -26,13 +29,9 @@ To perform pan-resolution community detection as in MuSIC, **please install:**
 - [alignOntology](https://github.com/mhk7/alignOntology)
 	- **Note:** DDOT has alignOntology in `/ddot/alignOntology` folder. If user has trouble installing  alignOntology from GitHub, user can use path to alignOntology in DDOT for the `--path_to_alignOntology` parameter in the community detection section.
 
-## [Step-by-step guide to build MuSIC v1](Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb)
+### [Step-by-step guide to build MuSIC v1](Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb)
 
-## [User Manual](https://github.com/idekerlab/MuSIC/wiki/User-Manual)
-
-## How to download MuSIC v1?
-The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e8bacf?accesskey=68afa0480a4859906b5d221619ee95679da96059680557f65c3dd9f1842e4930) network is shared via NDEx and can be downloaded to Cytoscape by clicking the "Open in Cytoscape" button at the bottom-right of the web page.
-- NDEx, the Network Data Exchange (www.ndexbio.org, Pratt et. al. 2017 DOI: 10.1158/0008-5472.CAN-17-0606), is an online commons for biological networks where networks of many types and formats can be shared, accessed, and stored by users and applications. 
+### [User Manual](https://github.com/idekerlab/MuSIC/wiki/User-Manual)
 
 ## Data Availability
 - All immunofluorescence images used in this study are available at https://www.proteinatlas.org/.
