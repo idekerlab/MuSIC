@@ -48,8 +48,8 @@ The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e
 
 
 <p float="left">
-  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/hpa_logo.png" width="200"/>
-  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/kth_logo.png" width="100"/>
+  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/hpa_logo.png" width="300"/>
+  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/kth_logo.png" width="80"/>
 </p>
 
 [**Lundberg Lab**](https://cellprofiling.org/)
