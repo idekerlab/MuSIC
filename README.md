@@ -32,12 +32,11 @@ To perform pan-resolution community detection as in MuSIC, **please install:**
 
 ## How to download MuSIC v1?
 The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e8bacf?accesskey=68afa0480a4859906b5d221619ee95679da96059680557f65c3dd9f1842e4930) network is shared via NDEx and can be downloaded to Cytoscape by clicking the "Open in Cytoscape" button at the bottom-right of the web page.
-- NDEx, the Network Data Exchange (www.ndexbio.org, Pratt et. al. 2017 DOI: 10.1158/0008-5472.CAN-17-0606), is an online commons for biological networks where networks of many types and formats can be shared, accessed, and stored by users and applications. NDEx is also tightly integrated with Cytoscape app (https://cytoscape.org/).
+- NDEx, the Network Data Exchange (www.ndexbio.org, Pratt et. al. 2017 DOI: 10.1158/0008-5472.CAN-17-0606), is an online commons for biological networks where networks of many types and formats can be shared, accessed, and stored by users and applications. 
 
 ## Data Availability
-- All IF images used in this study are available at https://www.proteinatlas.org/.
-- The [BioPlex 2.0](http://test.ndexbio.org/#/network/164d426d-b185-11ea-a4d3-0660b7976219) input network and the [newly generated AP-MS data](http://www.ndexbio.org/#/network/62f6c8f5-a05b-11ea-aaef-0ac135e8bacf?accesskey=06f0739d6558f98b222ce8e53d35d9a6788b589cbf0d529b00e730aeba35c31d) in this study can be accessed via NDEx.
-- AP-MS data, including filtered and unfiltered interaction lists as well as raw mass spectrometry data, are also available at http://bioplex.hms.harvard.edu.
+- All immunofluorescence images used in this study are available at https://www.proteinatlas.org/.
+- The [BioPlex 2.0](http://test.ndexbio.org/#/network/164d426d-b185-11ea-a4d3-0660b7976219) input network and the [newly generated AP-MS data](http://www.ndexbio.org/#/network/62f6c8f5-a05b-11ea-aaef-0ac135e8bacf?accesskey=06f0739d6558f98b222ce8e53d35d9a6788b589cbf0d529b00e730aeba35c31d) in this study can be accessed via NDEx. AP-MS data, including filtered and unfiltered interaction lists as well as raw mass spectrometry data, are also available at http://bioplex.hms.harvard.edu.
 
 ## Collaborators
 
