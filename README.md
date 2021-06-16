@@ -40,7 +40,7 @@ The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e
 
 ## Collaborators
 
-<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/ucsd_logo.png" width="300">
+<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/ucsd_logo.png" width="200">
 
 [**Ideker Lab**](https://idekerlab.ucsd.edu/)
 
@@ -48,7 +48,7 @@ The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e
 
 
 <p float="left">
-  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/hpa_logo.png" width="300"/>
+  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/hpa_logo.png" width="200"/>
   <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/kth_logo.png" width="100"/>
 </p>
 
@@ -64,6 +64,6 @@ The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e
 
 <br/>
 
-<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/ulb_logo.png" width=300>
+<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/ulb_logo.png" width=200>
 
 [**Lafontaine Lab**](https://www.lafontainelab.com/)
