@@ -4,63 +4,8 @@ MuSIC is a hierarchical map of eukaryotic cell architecture created from integra
 
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
-## Download MuSIC v1 map
-The [MuSIC v1](http://www.ndexbio.org/?#/network/7fc70ab6-9fb1-11ea-aaef-0ac135e8bacf?accesskey=68afa0480a4859906b5d221619ee95679da96059680557f65c3dd9f1842e4930) network is shared via NDEx, an online commons for biological networks, and can be downloaded to Cytoscape by clicking the `Open in Cytoscape` button at the bottom-right of the web page.
+Comprehensive information for MuSIC available at **https://nrnb.org/music/**.
 
-## Install MuSIC pipeline
-Anaconda users please either install relevant packages with the following command lines
-```
-conda env create -f ./installation/environment.yml
-source activate music
-```
-or using requirements.txt if the yml file is not compatible with the user's platform.
-```
-conda create -n music python=3.6.2 anaconda
-source activate music
-pip install -r ./installation/requirements.txt
-```
-
-To perform pan-resolution community detection as in MuSIC, **please install:**
-- [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0)
-- [DDOT](https://github.com/michaelkyu/ddot)
-	- **Note:** the dependencies are already satisfied, but users need to **follow instructions in section *Install the ddot Python package*** to complete installation. 
-- [alignOntology](https://github.com/mhk7/alignOntology)
-	- **Note:** DDOT has alignOntology in `/ddot/alignOntology` folder. If user has trouble installing  alignOntology from GitHub, user can use path to alignOntology in DDOT for the `--path_to_alignOntology` parameter in the community detection section.
-
-### [Step-by-step guide to build MuSIC v1](Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb)
-
-### [User Manual](https://github.com/idekerlab/MuSIC/wiki/User-Manual)
-
-## Data Availability
-- All immunofluorescence images used in this study are available at https://www.proteinatlas.org/.
-- The [BioPlex 2.0](http://test.ndexbio.org/#/network/164d426d-b185-11ea-a4d3-0660b7976219) input network and the [newly generated AP-MS data](http://www.ndexbio.org/#/network/62f6c8f5-a05b-11ea-aaef-0ac135e8bacf?accesskey=06f0739d6558f98b222ce8e53d35d9a6788b589cbf0d529b00e730aeba35c31d) in this study can be accessed via NDEx. AP-MS data, including filtered and unfiltered interaction lists as well as raw mass spectrometry data, are also available at http://bioplex.hms.harvard.edu.
-
-## Collaborators
-
-<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/ucsd_logo.png" width="200">
-
-[**Ideker Lab**](https://idekerlab.ucsd.edu/)
-
-[**Yeo Lab**](https://yeolab.github.io/)
+## [A Step By Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)
 
 
-<p float="left">
-  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/hpa_logo.png" width="300"/>
-  <img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/kth_logo.png" width="80"/>
-</p>
-
-[**Lundberg Lab**](https://cellprofiling.org/)
-
-<br/>
-
-<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/hms_logo.png" width="100">
-
-[**Harper Lab**](https://harper.hms.harvard.edu/)
-
-[**Gygi Lab**](https://gygi.hms.harvard.edu/index.html)
-
-<br/>
-
-<img src="https://github.com/idekerlab/MuSIC/blob/master/Figures/logos/ulb_logo.png" width=200>
-
-[**Lafontaine Lab**](https://www.lafontainelab.com/)
