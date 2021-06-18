@@ -31,7 +31,7 @@ source activate music # activate the virtual environment
 pip install -r ./requirements.txt
 ```
 
-This code was tested on an Ubuntu 18.04 system.
+This code was tested on an Ubuntu 20.04 system.
 
 ## Usage
 
