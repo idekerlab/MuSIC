@@ -16,7 +16,7 @@ Before following this guide, please make sure you setup the Python environment a
 [Additional Resources](#additional-resources)
 
 ## Input Data Preparation
-In MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each individual protein with respect to the specific measurement platform. Of note, we recommend embedding each protein in the same number of dimensions for different data types.
+In the MuSIC v1 study, we demonstrated the MuSIC pipeline with embeddings from immunofluorescence images and protein physical association data. However, the application of MuSIC pipeline is not limited to only these two data modalities. The key is to describe each individual protein with respect to the specific measurement platform. Of note, we recommend embedding each protein in the same number of dimensions for different data types.
 
 To run MuSIC, you need to first generate the two types of protein embeddings from immunofluorescence(IF) images and protein-protein interactions(PPI). 
 
@@ -33,11 +33,10 @@ We here provide the 1024-dimension embeddings for the 661 proteins used in MuSIC
 #### Customized embedding file format
 Besides the provided embeddings, you can also use your own custom embedding files generated from other data sources.
 
-For customized embedding files, please format file to match the style in the example embedding files:
+For customized embedding files, please format a csv (comma separated values) file to match the style in the example embedding files:
 - First column: unique ID for each embedding
 - Second column: gene name
 - Following columns: each column is one entry in the embedding vector
-- Comma separate all columns
 
 ***Note: The MuSIC pipeline can handle any number of data types (e.g. IF, APMS, etc.) and any dimension of protein embeddings (i.e. length of feature vector), but all proteins need to have same number of dimension within each individual data type, and we recommend keeping consistent number of dimensions among different types of data.***
 
@@ -77,9 +76,9 @@ This file stores the calibrated distance and proximity for every pair of input p
 Using the **Calibration Function**, we label every protein pair with a curated physical distance. With these curated distances as training labels, we will teach random forest regressors to predict the pairwise distance of any protein pair directly from its features embedded from different data modalities. Depending on number of features and samples, training a random forest regressor could take a long time and need a large amount of computational resource. For example, each random forest regressor in the original MuSIC study was trained with ~1M samples consisted of 2060 input features, requiring ~1 day and >100 Gb memory with 24 threads. 
 
 #### Note
-1) Original MuSIC study used only immunofluorescence images and protein physical association data. However, the MuSIC pipeline design is generalizable to any number of data modalities and here we allow user input any number of data modalities to integrate.
-2) We recommend keeping number of input features to random forest model the same for each data modality.
-3) The amount of training time and computational resource can be decreased by using less number of samples and embedding data modalities into smaller number of dimensions.
+1) The original MuSIC study used only immunofluorescence images and protein physical association data. However, the MuSIC pipeline design is generalizable to any number of data modalities and here we allow user input any number of data modalities to integrate.
+2) We recommend keeping the number of input features to random forest model the same for each data modality.
+3) The amount of training time and computational resource can be decreased by using less samples and embedding data modalities into smaller number of dimensions.
 
 ### Usage
 ```
@@ -133,7 +132,7 @@ The <outprefix>_predicted_proximity.txt file is used as input for the pan-resolu
 
 `--n_jobs` The number of jobs to run in parallel for training random forest regressor (default: 8).
 
-### Output file: $outprefix_predicted_proximity.txt
+### Output file: <outprefix>_predicted_proximity.txt
 
 This file stores the predicted protein-protein proximity for all pairs of the given protein.
 - First column: name of gene A
