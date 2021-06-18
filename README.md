@@ -1,11 +1,10 @@
-# Multi-Scale Integrated Cell (MuSIC)
+# The Multi-Scale Integrated Cell (MuSIC)
 
-MuSIC is a hierarchical map of eukaryotic cell architecture created from integrating immunofluorescence images in the Human Protein Atlas with affinity purification experiments from the BioPlex resource. Integration involves configuring each approach to produce a general measure of protein distance, then calibrating the two measures using machine learning.
+MuSIC is a hierarchical map of human cell architecture created from integrating immunofluorescence images in the Human Protein Atlas with affinity purification experiments from the BioPlex resource. Integration involves configuring each approach to produce a general measure of protein distance, then calibrating the two measures using machine learning.
 
 This repository contains the source code and data for reproducing the results in [Qin et al. 2020](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1), as well as step-by-step introduction for the MuSIC tool.
 
 The generated MuSIC map and more details are available at [https://nrnb.org/music/](https://nrnb.org/music/).
-
 
 ## Installation
 
