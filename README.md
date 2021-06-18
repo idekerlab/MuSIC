@@ -59,7 +59,3 @@ If you find this code useful in your research, please consider citing:
 	URL = {https://www.biorxiv.org/content/early/2020/06/22/2020.06.21.163709}
 }
 ```
-Please cite 
-
-
-
