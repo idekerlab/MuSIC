@@ -1,6 +1,8 @@
 # Step-by-step Guide for creating MuSIC maps
 
-This page describes a step-by-step guide to create the MuSIC map, including how to install the necessary packages and other dependencies; the specification of input data; and detailed documentation for each step and its parameters. An [accompanying Jupyter notebook](https://github.com/idekerlab/MuSIC/blob/master/Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb) instantiates these steps with the exact series of code executions that were used to generate MuSIC v1 presented in the paper. Notably, these steps can be used with other inputs and parameter settings to build other multi-scale cell models.  
+This page describes a step-by-step guide to create the MuSIC map, including how to install the necessary packages and other dependencies; the specification of input data; and detailed documentation for each step and its parameters. An [accompanying Jupyter notebook](https://github.com/idekerlab/MuSIC/blob/master/Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb) instantiates these steps with the exact series of code executions that were used to generate MuSIC v1 presented in the paper. Notably, these steps can be used with other inputs and parameter settings to build other multi-scale cell models.
+
+Before following this guide, please make sure you setup the Python environment according to the [instructions for installation](https://github.com/idekerlab/MuSIC/tree/master#installation).
 
 ## Table of contents
 [Input Data Preparation](#input-data-preparation)
