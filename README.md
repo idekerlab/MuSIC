@@ -44,6 +44,16 @@ pip install -r ./installation/requirements.txt
 ```
 
 ## Toy example
+The toy script will run through MuSIC pipeline using 100 proteins with random embeddins.
 ```
 ./toy_example.sh
+```
+
+The toy hierarchy is stored in two output files with details available [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
+```
+# Output: hierarchical relationship among systems and genes
+head ./Examples/toy_output/toy.louvain.ddot
+
+# Output: specific protein assignment for each identified system
+head ./Examples/toy_output/toy.louvain.termStats
 ```
