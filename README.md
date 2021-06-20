@@ -35,6 +35,7 @@ pip install -r ./installation/requirements.txt
 ```
 
 
+
 # MuSIC pipeline execution
 
 1. Test of the pipeline: run the following bash script to execute MuSIC pipeline for a toy example including 100 proteins with random embeddings.
@@ -59,7 +60,6 @@ head ./Examples/toy_output/toy.louvain.termStats
 
 
 3. To run the MuSIC pipeline on jupyter notebook, consider using the following jupyter notebook as a starting point:
-
    [Accompanying Jupyter Notebook to Build MuSIC v1.0](https://github.com/idekerlab/MuSIC/blob/master/Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb?)**
 
 
