@@ -41,21 +41,21 @@ pip install -r ./installation/requirements.txt
 ```
 ./toy_example.sh
 ```
-  i. The bash script runs a series of python scripts to build a hierarchy for the queried proteins.
-  ```
-  a) calibrate_pairwise_distance.py: generate gold-standard protein-protein proximity values
-  b) random_forest_samples.py, run_random_forest.py, random_forest_output.py: build random forest to predict protein-protein proximity from data embeddings
-  c) community_detection.py: analyze proximity data to identify protein communities at progressive resolutions
-  ```
-    
-  ii. The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
-  ```
-  # Output: hierarchical relationship among systems and genes
-  head ./Examples/toy_output/toy.louvain.ddot
+    i. The bash script runs a series of python scripts to build a hierarchy for the queried proteins.
+    ```
+    a) calibrate_pairwise_distance.py: generate gold-standard protein-protein proximity values
+    b) random_forest_samples.py, run_random_forest.py, random_forest_output.py: build random forest to predict protein-protein proximity from data embeddings
+    c) community_detection.py: analyze proximity data to identify protein communities at progressive resolutions
+    ```
 
-  # Output: specific protein assignment for each identified system
-  head ./Examples/toy_output/toy.louvain.termStats
-  ```
+    ii. The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
+    ```
+    # Output: hierarchical relationship among systems and genes
+    head ./Examples/toy_output/toy.louvain.ddot
+
+    # Output: specific protein assignment for each identified system
+    head ./Examples/toy_output/toy.louvain.termStats
+    ```
 
 2. To run the MuSIC pipeline for user-specified input (proteins), follows steps detailed in the following document:
 [A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
