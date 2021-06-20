@@ -42,7 +42,7 @@ pip install -r ./installation/requirements.txt
 ./toy_example.sh
 ```
 
-The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
+  The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
 ```
 # Output: hierarchical relationship among systems and genes
 head ./Examples/toy_output/toy.louvain.ddot
@@ -53,11 +53,9 @@ head ./Examples/toy_output/toy.louvain.termStats
 
 
 2. To run the MuSIC pipeline for user-specified input (proteins), follows steps detailed in the following document:
-
    [A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
 
-   Command line example of running the MuSIC pipeline is given in a bash script file:
-    
+   Command line example of running the MuSIC pipeline is given in a bash script file: 
    [Accompanying Bash Script to Build MuSIC v1.0 (example_buid_music_v1.sh)](https://github.com/idekerlab/MuSIC/blob/master/example_buid_music_v1.sh)**
 
 
