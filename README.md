@@ -43,9 +43,9 @@ pip install -r ./installation/requirements.txt
 ```
 The bash script runs a series of python scripts to build a hierarchy for the queried proteins.
 
-    a) Step 1: generate gold-standard protein-protein proximity values (calibrate_pairwise_distance.py)
-    b) Step 2: build random forest to predict protein-protein proximity from data embeddings (random_forest_samples.py, python run_random_forest.py, random_forest_output.py)
-    c) Step 3: analyze proximity data to identify protein communities at progressive resolutions (community_detection.py)
+i. Step 1: generate gold-standard protein-protein proximity values (calibrate_pairwise_distance.py)
+ii.  Step 2: build random forest to predict protein-protein proximity from data embeddings (random_forest_samples.py, python run_random_forest.py, random_forest_output.py)
+iii. Step 3: analyze proximity data to identify protein communities at progressive resolutions (community_detection.py)
 
 
 The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
@@ -60,8 +60,8 @@ head ./Examples/toy_output/toy.louvain.termStats
 2. To run the MuSIC pipeline for user-specified input (proteins), follows steps detailed in the following document:
 [A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
 
-Command line example of running the MuSIC pipeline is given in a bash script file:
-[Accompanying Bash Script to Build MuSIC v1.0 (example_buid_music_v1.sh)](https://github.com/idekerlab/MuSIC/blob/master/example_buid_music_v1.sh)**
+    Command line example of running the MuSIC pipeline is given in a bash script file:
+    [Accompanying Bash Script to Build MuSIC v1.0 (example_buid_music_v1.sh)](https://github.com/idekerlab/MuSIC/blob/master/example_buid_music_v1.sh)**
 
 
 3. To run the MuSIC pipeline on jupyter notebook, consider using the following jupyter notebook as a starting point:
