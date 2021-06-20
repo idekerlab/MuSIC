@@ -41,8 +41,7 @@ pip install -r ./installation/requirements.txt
 ```
 ./toy_example.sh
 ```
-
-  The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
+   The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
 ```
 # Output: hierarchical relationship among systems and genes
 head ./Examples/toy_output/toy.louvain.ddot
