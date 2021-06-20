@@ -30,8 +30,9 @@ if args.C_file != None:
     if not os.path.exists(args.C_file):
         raise ValueError('File path entered for C_file does not exist!')
 
+music_dir = os.path.dirname(os.path.realpath(__file__))
 # Get Calibration Function
-calibration_data = pd.read_table('./data/calibration.txt')
+calibration_data = pd.read_table('{}/data/calibration.txt'.format(music_dir))
 slope, intercept, r_value, _, _ = linregress(np.log10(calibration_data['C']), 
                                              np.log10(calibration_data['D']))
 print('Calibration Function:\nlog10(D) = {} * log10(C) + {}'.format(round(slope, 2), round(intercept, 2)))
@@ -42,9 +43,9 @@ print('Analyzing {} proteins:'.format(len(proteins)))
 print(', '.join(x for x in proteins))
 
 # Load GO CC without HPA evidence
-go = pd.read_table('./data/GO_CC_human_no_hpa.txt', header=None, index_col=0)
+go = pd.read_table('{}/data/GO_CC_human_no_hpa.txt'.format(music_dir), header=None, index_col=0)
 go.columns = ['tsize', 'genes']
-go_proteins = [x.rstrip('\n') for x in open('./data/GO_annotated_proteins.txt', 'r').readlines()]
+go_proteins = [x.rstrip('\n') for x in open('{}/data/GO_annotated_proteins.txt'.format(music_dir), 'r').readlines()]
 
 annot_proteins = set(proteins).intersection(set(go_proteins))
 rest_proteins = set(proteins) - annot_proteins
