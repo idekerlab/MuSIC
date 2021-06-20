@@ -12,3 +12,38 @@ Additional resources on GitHub:
 
 Please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
+## Requirements
+- [Anaconda](https://www.anaconda.com/products/individual#Downloads) (optional but highly recommended)
+- build-essential 
+- python-dev 
+- libxml2 
+- libxml2-dev 
+- zlib1g-dev 
+- libigraph0-dev 
+- libmpc-dev
+
+## Installation
+1. Create an Anaconda virtual environment. This is optional but highly recommended. Takes ~10 minutes.
+```
+conda create -n music python=3.6.2 anaconda
+source activate music
+```
+
+2. Download MuSIC and install dependencies.
+
+```
+git clone https://github.com/idekerlab/MuSIC.git
+cd MuSIC
+pip install -r ./installation/requirements.txt
+```
+
+3. Install [CliXO v1.0](https://github.com/fanzheng10/CliXO-1.0) and [DDOT](https://github.com/michaelkyu/ddot) by running the following command line.
+
+```
+./installation/install.sh
+```
+
+## Toy example
+```
+./toy_example.sh
+```
