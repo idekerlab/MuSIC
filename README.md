@@ -65,25 +65,25 @@ pip install -r ./installation/requirements.txt
         ```
 
    * The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
-   
-    ```
-    # Output: hierarchical relationship among systems and genes
-    head ./Examples/toy_output/toy.louvain.ddot
 
-       # column 1: the parent system
-       # column 2: the child system or gene
-       # column 3: property of child in the second column
-          default: child is a system 
-          gene: child is a gene
+      ```
+      # Output: hierarchical relationship among systems and genes
+      head ./Examples/toy_output/toy.louvain.ddot
 
-    # Output: specific protein assignment for each identified system
-    head ./Examples/toy_output/toy.louvain.termStats
+         # column 1: the parent system
+         # column 2: the child system or gene
+         # column 3: property of child in the second column
+            default: child is a system 
+            gene: child is a gene
 
-       # column 2 (Number_of_proteins): total number of proteins belonging to the system
-       # column 3 (Proteins): comma separated list of proteins belonging to the system
-       # column 4 (median_recal_nm): median of predicted distance, in nm, among all pairs of proteins in the system
-       # column 5 (Estimated_size_in_nm): predicted size, in nm, of the system
-    ```
+      # Output: specific protein assignment for each identified system
+      head ./Examples/toy_output/toy.louvain.termStats
+
+         # column 2 (Number_of_proteins): total number of proteins belonging to the system
+         # column 3 (Proteins): comma separated list of proteins belonging to the system
+         # column 4 (median_recal_nm): median of predicted distance, in nm, among all pairs of proteins in the system
+         # column 5 (Estimated_size_in_nm): predicted size, in nm, of the system
+      ```
 
 2. To run the MuSIC pipeline for user-specified input (proteins), follows steps detailed in the following document:
    [A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
