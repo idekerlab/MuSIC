@@ -42,6 +42,7 @@ pip install -r ./installation/requirements.txt
 ```
 ./toy_example.sh
 ```
+toy_example.sh runs a series of python scripts to infer a hierarchy for the query proteins using random embeddings.
 ```
 # Step 1: Generate gold-standard protein-protein proximity values
     python calibrate_pairwise_distance.py --protein_file ./Examples/toy/toy_proteins.txt --outprefix ./Examples/toy_output/toy
