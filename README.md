@@ -69,12 +69,14 @@ pip install -r ./installation/requirements.txt
       ```
       # Output: hierarchical relationship among systems and genes
       head ./Examples/toy_output/toy.louvain.ddot
+      
            # column 1: the parent system
            # column 2: the child system or gene
            # column 3: property of child in the second column (default indicates column 2 is a system, gene indicates column 2 is a gene)
 
       # Output: specific protein assignment for each identified system
       head ./Examples/toy_output/toy.louvain.termStats
+      
            # column 1: unique identifier for each system
            # column 2 (Number_of_proteins): total number of proteins belonging to the system
            # column 3 (Proteins): comma separated list of proteins belonging to the system
