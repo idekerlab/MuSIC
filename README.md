@@ -55,6 +55,7 @@ pip install -r ./installation/requirements.txt
                                             --emd_label IF_emd APMS_emd --n_samples 1000
 
             # run random forest for 5 folds
+            # this part can be parallelized for a larger input data set in a customized way that users can maximize the utility of the resources
             for ((fold = 1; fold <= 5; fold++));
             do
                 python run_random_forest.py --outprefix ./Examples/toy_output/toy --fold $fold --emd_label IF_emd APMS_emd;
