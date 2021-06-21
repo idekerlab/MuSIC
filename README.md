@@ -85,7 +85,7 @@ pip install -r ./installation/requirements.txt
          # column 5 (Estimated_size_in_nm): predicted size, in nm, of the system
       ```
 
-2. To run the MuSIC pipeline for user-specified input (proteins), follows steps detailed in the following document:
+2. To run the MuSIC pipeline for user-specified input (proteins), follow the steps detailed in the following document:
    **[A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
 
    Command line example of running the MuSIC pipeline is given in a bash script file: 
