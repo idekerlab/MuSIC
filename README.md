@@ -7,7 +7,7 @@ Web-based exploration of comprehensive information for MuSIC is available at **h
 If your research utilizes the MuSIC hierarchy or a customized hierarchy constructed using the MuSIC pipeline, please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
-# Set up an environment for MuSIC
+## Set up an environment for MuSIC
 
 0. Requirements
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads) (optional but highly recommended)
@@ -36,7 +36,7 @@ pip install -r ./installation/requirements.txt
 
 
 
-# MuSIC pipeline execution
+## MuSIC pipeline execution
 
 1. Test of the pipeline: run the following bash script to execute MuSIC pipeline for a toy example including 100 proteins with random embeddings.
 ```
