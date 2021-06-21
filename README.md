@@ -44,8 +44,7 @@ pip install -r ./installation/requirements.txt
 ```
 ./toy_example.sh
 ```
-
-      * toy_example.sh runs a series of python scripts to infer a hierarchy for the query proteins using random embeddings.
+   * toy_example.sh runs a series of python scripts to infer a hierarchy for the query proteins using random embeddings.
 
             ```
             # Step 1: Generate gold-standard protein-protein proximity values
@@ -66,7 +65,7 @@ pip install -r ./installation/requirements.txt
                 python community_detection.py --outprefix ./Examples/toy_output/toy --clixo_i ./Examples/toy_output/toy_predicted_proximity.txt --predict_nm_size --keep_all_files
             ```
 
-      * The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
+   * The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
 
         ```
         # Output: hierarchical relationship among systems and genes
