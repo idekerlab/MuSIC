@@ -11,7 +11,7 @@ Web-based exploration of comprehensive information for MuSIC is available at: **
 If your research utilizes the MuSIC hierarchy or a customized hierarchy constructed using the MuSIC pipeline, please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
-# Set up an environment for MuSIC
+## Set up an environment for MuSIC
 
 0. Requirements
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads) (optional but highly recommended)
@@ -40,36 +40,13 @@ pip install -r ./installation/requirements.txt
 
 
 
-# MuSIC pipeline execution
+## MuSIC pipeline execution
 
-1. Test of the pipeline: run the following bash script to execute MuSIC pipeline for a toy example including 100 proteins with random embeddings.
+1. Test of the pipeline: run the [toy_example.sh](https://github.com/idekerlab/MuSIC/blob/master/toy_example.sh) bash script to execute MuSIC pipeline for a toy example including 100 proteins with random embeddings.
 ```
 ./toy_example.sh
 ```
    * toy_example.sh runs a series of python scripts to infer a hierarchy for the query proteins using random embeddings.
-        ```
-        # Step 1: Generate gold-standard protein-protein proximity values
-            python calibrate_pairwise_distance.py --protein_file ./Examples/toy/toy_proteins.txt --outprefix ./Examples/toy_output/toy
-
-        # Step 2: Build random forest to predict protein-protein proximity from data embeddings
-            python random_forest_samples.py --outprefix ./Examples/toy_output/toy --protein_file ./Examples/toy/toy_proteins.txt 
-                                            --emd_files ./Examples/toy/toy_IF_image_embedding.csv ./Examples/toy/toy_APMS_embedding.csv 
-                                            --emd_label IF_emd APMS_emd --n_samples 1000
-
-            # run random forest for 5 folds
-            # this part can be parallelized for a larger input data set in a customized way that users can maximize the utilization of the resources
-            for ((fold = 1; fold <= 5; fold++));
-            do
-                python run_random_forest.py --outprefix ./Examples/toy_output/toy --fold $fold --emd_label IF_emd APMS_emd;
-            done
-
-            python random_forest_output.py --outprefix ./Examples/toy_output/toy
-
-        # Step 3: Analyze proximity data to identify protein communities at progressive resolutions
-            python community_detection.py --outprefix ./Examples/toy_output/toy --clixo_i ./Examples/toy_output/toy_predicted_proximity.txt 
-                                          --predict_nm_size --keep_all_files
-        ```
-
    * The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
         ```
         # Output: hierarchical relationship among systems and genes
