@@ -4,7 +4,7 @@ MuSIC is a hierarchical map of human cell architecture created from integrating 
 
 Web-based exploration of comprehensive information for MuSIC is available at: **https://nrnb.org/music/**.
 
-A step-by-step guide to run the MuSIC pipeline can be found in: **[A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
+A step-by-step guide to run the MuSIC pipeline for user-specified input proteins can be found in: **[A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
 
 If your research utilizes the MuSIC hierarchy or a customized hierarchy constructed using the MuSIC pipeline, please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
