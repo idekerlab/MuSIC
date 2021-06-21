@@ -7,7 +7,7 @@ Web-based exploration of comprehensive information for MuSIC is available at **h
 If your research utilizes the MuSIC hierarchy or a customized hierarchy constructed using the MuSIC pipeline, please cite **[Qin et al., “Mapping cell structure across scales by fusing protein images and interactions”](https://www.biorxiv.org/cgi/content/short/2020.06.21.163709v1)**.
 
 
-## Set up an environment for MuSIC
+# Set up an environment for MuSIC
 
 0. Requirements
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads) (optional but highly recommended)
@@ -36,7 +36,7 @@ pip install -r ./installation/requirements.txt
 
 
 
-## MuSIC pipeline execution
+# MuSIC pipeline execution
 
 1. Test of the pipeline: run the following bash script to execute MuSIC pipeline for a toy example including 100 proteins with random embeddings.
 ```
@@ -69,20 +69,17 @@ pip install -r ./installation/requirements.txt
       ```
       # Output: hierarchical relationship among systems and genes
       head ./Examples/toy_output/toy.louvain.ddot
-
-         # column 1: the parent system
-         # column 2: the child system or gene
-         # column 3: property of child in the second column
-            default: child is a system 
-            gene: child is a gene
+           # column 1: the parent system
+           # column 2: the child system or gene
+           # column 3: property of child in the second column (default indicates column 2 is a system, gene indicates column 2 is a gene)
 
       # Output: specific protein assignment for each identified system
       head ./Examples/toy_output/toy.louvain.termStats
-
-         # column 2 (Number_of_proteins): total number of proteins belonging to the system
-         # column 3 (Proteins): comma separated list of proteins belonging to the system
-         # column 4 (median_recal_nm): median of predicted distance, in nm, among all pairs of proteins in the system
-         # column 5 (Estimated_size_in_nm): predicted size, in nm, of the system
+           # column 1: unique identifier for each system
+           # column 2 (Number_of_proteins): total number of proteins belonging to the system
+           # column 3 (Proteins): comma separated list of proteins belonging to the system
+           # column 4 (median_recal_nm): median of predicted distance, in nm, among all pairs of proteins in the system
+           # column 5 (Estimated_size_in_nm): predicted size, in nm, of the system
       ```
 
 2. To run the MuSIC pipeline for user-specified input (proteins), follow the steps detailed in the following document:
