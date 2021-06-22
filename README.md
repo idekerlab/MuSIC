@@ -14,8 +14,8 @@ If you find MuSIC helpful for your research, please cite **[Qin et al., “Mappi
 ## Set up an environment for MuSIC
 
 0. Requirements
-- [Anaconda](https://www.anaconda.com/products/individual#Downloads) (optional but highly recommended)
-- APT packages including build-essential, python-dev, libxml2, libxml2-dev, zlib1g-dev, libigraph0-dev, libmpc-dev
+    - [Anaconda](https://www.anaconda.com/products/individual#Downloads) (optional but highly recommended)
+    - APT packages including build-essential, python-dev, libxml2, libxml2-dev, zlib1g-dev, libigraph0-dev, libmpc-dev
 
 
 1. Create an Anaconda virtual environment. This is optional but highly recommended. Takes ~10 minutes.
