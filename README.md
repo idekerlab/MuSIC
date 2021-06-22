@@ -55,7 +55,7 @@ pip install -r ./installation/requirements.txt
          # run toy example script again
          ./toy_example.sh
          ```
-   * toy_example.sh runs a series of python scripts to infer a hierarchy for the query proteins using random embeddings. The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-outprefixlouvainddot).
+   * toy_example.sh runs a series of python scripts to infer a hierarchy for the query proteins using random embeddings. The resulting hierarchy is stored in two output files. Details about the file format can be found [here](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map#output-file-2).
         ```
         # Output: hierarchical relationship among systems and genes
         head ./Examples/toy_output/toy.louvain.ddot
