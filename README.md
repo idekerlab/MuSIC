@@ -68,12 +68,10 @@ pip install -r ./installation/requirements.txt
 2. To run the MuSIC pipeline for user-specified input (proteins), follow the steps detailed in the following document:
    **[A Step-By-Step Guide to Building a MuSIC Map](https://github.com/idekerlab/MuSIC/wiki/A-Step-By-Step-Guide-to-Building-a-MuSIC-Map)**
 
-   Command line example of running the MuSIC pipeline is given in a bash script file: 
-   **[Accompanying Bash Script to Build MuSIC v1.0 (example_buid_music_v1.sh)](https://github.com/idekerlab/MuSIC/blob/master/example_buid_music_v1.sh)**
-
-
-3. To run the MuSIC pipeline on jupyter notebook, consider using the following jupyter notebook as a starting point:
-   **[Accompanying Jupyter Notebook to Build MuSIC v1.0](https://github.com/idekerlab/MuSIC/blob/master/Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb?)**
+   Command lines for building MuSIC v1 map as presented in the paper are provided both in a bash script file
+   (**[Accompanying Bash Script to Build MuSIC v1.0 (example_buid_music_v1.sh)](https://github.com/idekerlab/MuSIC/blob/master/example_buid_music_v1.sh)**)
+   and as a jupyter notebook
+   (**[Accompanying Jupyter Notebook to Build MuSIC v1.0](https://github.com/idekerlab/MuSIC/blob/master/Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb?)**).
 
 
 
