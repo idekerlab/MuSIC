@@ -3,6 +3,8 @@
 python calibrate_pairwise_distance.py --protein_file ./Examples/MuSIC_proteins.txt --outprefix ./Examples/output/test
 
 # Step 2: Build random forest to predict protein-protein proximity from data embeddings
+# Demo with 1000 training samples and 2 sets of image features
+# Please refer to step by step guide or accompanying Jupyter notebook for details
 python random_forest_samples.py --outprefix ./Examples/output/test --protein_file ./Examples/MuSIC_proteins.txt --emd_files ./Examples/IF_image_embedding.csv ./Examples/APMS_embedding.MuSIC.csv --emd_label IF_emd APMS_emd --num_set 2 auto --n_samples 1000 
 
 for ((fold = 1; fold <= 5; fold++))
