@@ -162,3 +162,7 @@ def jaccard(setA, setB):
 def scaled_P_to_nm(scaled_P):
     power = -3.968*scaled_P + 4.326
     return 10**power
+
+def num_comb(x):
+    return x*(x-1)/2
+
