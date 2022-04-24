@@ -81,6 +81,9 @@ pip install -r ./installation/requirements.txt
    (**[Accompanying Bash Script to Build MuSIC v1.0 (example_buid_music_v1.sh)](https://github.com/idekerlab/MuSIC/blob/master/example_buid_music_v1.sh)**)
    and as a jupyter notebook
    (**[Accompanying Jupyter Notebook to Build MuSIC v1.0](https://github.com/idekerlab/MuSIC/blob/master/Step-by-step%20guide%20to%20build%20MuSIC%20v1.ipynb?)**).
+   
+   * The CliXO version used in the original study is provided in CliXO_MuSIC.zip. For downloading the latest CliXO version, please follow installation instructions detailed previously. In comparison to CliXO used in the original study, the latest CliXO is faster but could yield suboptimal clusters.
+
 
 
 
